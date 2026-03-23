@@ -5,10 +5,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 3882,
     "deepSleepMinutes": 81,
     "remSleepMinutes": 136,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "44422111111111333221111222222222233342222221222122233333322222222222223333333222222222223333333333322224",
+    "bedtimeStart": "2025-10-27T22:52:30.000-07:00",
+    "bedtimeEnd": "2025-10-28T07:30:06.000-07:00",
     "isStrengthDay": false
   },
   {
@@ -17,10 +21,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.74,
+    "restfulness": null,
     "steps": 2569,
     "deepSleepMinutes": 87,
     "remSleepMinutes": 147,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "44444224442111111112332222112221222222222333332211111222222333333222222222222212333333222222222334422332222222233333332",
+    "bedtimeStart": "2025-10-28T22:40:31.000-07:00",
+    "bedtimeEnd": "2025-10-29T08:32:48.000-07:00",
     "isStrengthDay": false
   },
   {
@@ -29,10 +37,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.8,
+    "restfulness": null,
     "steps": 1427,
     "deepSleepMinutes": 91,
     "remSleepMinutes": 134,
     "sleepEfficiency": 88,
+    "sleepPhase5Min": "4444442211111111122224222212211111112333322222222222123333333332222222214224333333342222222433333332222222223444444",
+    "bedtimeStart": "2025-10-29T23:10:58.000-07:00",
+    "bedtimeEnd": "2025-10-30T08:41:58.000-07:00",
     "isStrengthDay": false
   },
   {
@@ -41,10 +53,14 @@
     "resilienceScore": null,
     "resilienceLevel": null,
     "hrvBalance": null,
+    "restfulness": null,
     "steps": 4147,
     "deepSleepMinutes": 6,
     "remSleepMinutes": 0,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -53,10 +69,14 @@
     "resilienceScore": null,
     "resilienceLevel": null,
     "hrvBalance": null,
+    "restfulness": null,
     "steps": 3502,
     "deepSleepMinutes": 0,
     "remSleepMinutes": 0,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -65,10 +85,14 @@
     "resilienceScore": 5,
     "resilienceLevel": "exceptional",
     "hrvBalance": 0.86,
+    "restfulness": null,
     "steps": 7949,
     "deepSleepMinutes": 99,
     "remSleepMinutes": 137,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "42222211111111111332111121112222112222244222222222222222333332222222222222233333322222222222343343333222222233333",
+    "bedtimeStart": "2025-11-02T00:42:30.000-07:00",
+    "bedtimeEnd": "2025-11-02T09:05:38.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -77,10 +101,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.88,
+    "restfulness": null,
     "steps": 9889,
     "deepSleepMinutes": 63,
     "remSleepMinutes": 126,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "442211111112222112222223222221112222214333333332222222222222222433333333322222224222223333333",
+    "bedtimeStart": "2025-11-03T00:24:59.000-08:00",
+    "bedtimeEnd": "2025-11-03T08:09:31.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -89,10 +117,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.84,
+    "restfulness": null,
     "steps": 7432,
     "deepSleepMinutes": 74,
     "remSleepMinutes": 146,
     "sleepEfficiency": 87,
+    "sleepPhase5Min": "442122111111212122222222222444111122221222222223333333322222222222122223333332222222222333333322322242222222233332333444444444",
+    "bedtimeStart": "2025-11-03T22:58:30.000-08:00",
+    "bedtimeEnd": "2025-11-04T09:28:30.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -101,10 +133,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.82,
+    "restfulness": null,
     "steps": 5884,
     "deepSleepMinutes": 82,
     "remSleepMinutes": 124,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "444444211111111123322112422111222233424222222211122233333333332222222222122333333322222222222223333",
+    "bedtimeStart": "2025-11-04T23:39:30.000-08:00",
+    "bedtimeEnd": "2025-11-05T07:54:30.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -113,10 +149,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.8,
+    "restfulness": null,
     "steps": 8623,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 112,
     "sleepEfficiency": 98,
+    "sleepPhase5Min": "42221211112222222211111121111222233333322222212222222222333333333222222222222333333222222433",
+    "bedtimeStart": "2025-11-05T23:38:02.000-08:00",
+    "bedtimeEnd": "2025-11-06T07:15:02.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -125,10 +165,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.76,
+    "restfulness": null,
     "steps": 5993,
     "deepSleepMinutes": 107,
     "remSleepMinutes": 120,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "444422212212211233322111111422222111212333342222221222111233333332222222223333333324",
+    "bedtimeStart": "2025-11-07T00:01:33.000-08:00",
+    "bedtimeEnd": "2025-11-07T07:00:07.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -137,10 +181,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.76,
+    "restfulness": null,
     "steps": 13007,
     "deepSleepMinutes": 82,
     "remSleepMinutes": 181,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "4442212111211112222221111221112233333333222222222222222333333332222222222223333333442222222223333333443232221222333342222244",
+    "bedtimeStart": "2025-11-07T22:56:27.000-08:00",
+    "bedtimeEnd": "2025-11-08T09:13:06.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -149,10 +197,14 @@
     "resilienceScore": 5,
     "resilienceLevel": "exceptional",
     "hrvBalance": 0.74,
+    "restfulness": null,
     "steps": 4937,
     "deepSleepMinutes": 58,
     "remSleepMinutes": 131,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "442211111114222224444221142223333332222222242222233333322222222222333333322222222222333332222222212333",
+    "bedtimeStart": "2025-11-09T00:46:01.000-08:00",
+    "bedtimeEnd": "2025-11-09T09:16:17.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -161,10 +213,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 3928,
     "deepSleepMinutes": 57,
     "remSleepMinutes": 116,
     "sleepEfficiency": 89,
+    "sleepPhase5Min": "444422212211333333332221121112221114233333222222222222333333422222222222333332422422224",
+    "bedtimeStart": "2025-11-10T02:22:28.000-08:00",
+    "bedtimeEnd": "2025-11-10T09:33:24.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -173,10 +229,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.74,
+    "restfulness": null,
     "steps": 3169,
     "deepSleepMinutes": 101,
     "remSleepMinutes": 141,
     "sleepEfficiency": 96,
+    "sleepPhase5Min": "442211111211111113332211111222122333322222211222222333333332222222222222223333332222222222233343222222233",
+    "bedtimeStart": "2025-11-10T23:30:00.000-08:00",
+    "bedtimeEnd": "2025-11-11T08:13:16.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -185,10 +245,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.74,
+    "restfulness": null,
     "steps": 5274,
     "deepSleepMinutes": 58,
     "remSleepMinutes": 37,
     "sleepEfficiency": 86,
+    "sleepPhase5Min": "4244444222111111123222222122222114233333332224",
+    "bedtimeStart": "2025-11-12T03:44:01.000-08:00",
+    "bedtimeEnd": "2025-11-12T07:33:01.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -197,10 +261,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.64,
+    "restfulness": null,
     "steps": 2721,
     "deepSleepMinutes": 78,
     "remSleepMinutes": 123,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "442221111111223332211222112221111233333332222222222222333322222224422222333333332222222222223334",
+    "bedtimeStart": "2025-11-12T23:06:31.000-08:00",
+    "bedtimeEnd": "2025-11-13T07:04:26.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -209,10 +277,14 @@
     "resilienceScore": null,
     "resilienceLevel": null,
     "hrvBalance": null,
+    "restfulness": null,
     "steps": 1453,
     "deepSleepMinutes": null,
     "remSleepMinutes": null,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -221,10 +293,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.48,
+    "restfulness": null,
     "steps": 5342,
     "deepSleepMinutes": 94,
     "remSleepMinutes": 131,
     "sleepEfficiency": 83,
+    "sleepPhase5Min": "44422212121112221111223322221122212222233333224444222211111223333333322221221223333332222422422242222224444444444444333222222232222222244",
+    "bedtimeStart": "2025-11-14T23:18:59.000-08:00",
+    "bedtimeEnd": "2025-11-15T10:39:11.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -233,10 +309,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.74,
+    "restfulness": null,
     "steps": 3546,
     "deepSleepMinutes": 78,
     "remSleepMinutes": 153,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "44444444221114221112222211222111221233322222122224222222233333332222221222222333333322222222222333333333222322222334",
+    "bedtimeStart": "2025-11-15T22:10:28.000-08:00",
+    "bedtimeEnd": "2025-11-16T07:48:31.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -245,10 +325,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.52,
+    "restfulness": null,
     "steps": 6253,
     "deepSleepMinutes": 64,
     "remSleepMinutes": 128,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "44442211111223222122111221122233333242221222121233332332222222222223333333222222222233333324",
+    "bedtimeStart": "2025-11-16T23:38:28.000-08:00",
+    "bedtimeEnd": "2025-11-17T07:14:41.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -257,10 +341,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.48,
+    "restfulness": null,
     "steps": 3347,
     "deepSleepMinutes": 93,
     "remSleepMinutes": 123,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "44222111112221111332222111122211223333222222222142422223333344222221122223333333322222223333322222222222",
+    "bedtimeStart": "2025-11-17T22:31:03.000-08:00",
+    "bedtimeEnd": "2025-11-18T07:08:41.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -269,10 +357,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.48,
+    "restfulness": null,
     "steps": 4580,
     "deepSleepMinutes": 86,
     "remSleepMinutes": 113,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "444442211111123332211211142222122333222222222211112233343332222224222233333222222333",
+    "bedtimeStart": "2025-11-19T00:23:33.000-08:00",
+    "bedtimeEnd": "2025-11-19T07:23:00.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -281,10 +373,14 @@
     "resilienceScore": null,
     "resilienceLevel": null,
     "hrvBalance": null,
+    "restfulness": null,
     "steps": 234,
     "deepSleepMinutes": null,
     "remSleepMinutes": null,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -293,10 +389,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.38,
+    "restfulness": null,
     "steps": 1931,
     "deepSleepMinutes": 95,
     "remSleepMinutes": 108,
     "sleepEfficiency": 88,
+    "sleepPhase5Min": "44442424442111211111332222211111221111233333322211122211333333332222222222233333332222242234",
+    "bedtimeStart": "2025-11-21T00:48:00.000-08:00",
+    "bedtimeEnd": "2025-11-21T08:25:38.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -305,10 +405,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.54,
+    "restfulness": null,
     "steps": 8695,
     "deepSleepMinutes": 74,
     "remSleepMinutes": 124,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "44422211111112333222222222221122433333322211111222223333333222222222222333333322222222334",
+    "bedtimeStart": "2025-11-21T23:50:30.000-08:00",
+    "bedtimeEnd": "2025-11-22T07:11:24.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -317,10 +421,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.44,
+    "restfulness": null,
     "steps": 5847,
     "deepSleepMinutes": 95,
     "remSleepMinutes": 168,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "4444221112122222111112221113333334442221111113333333332222222222233333332222222223332222242223332224222121221233333",
+    "bedtimeStart": "2025-11-23T00:37:30.000-08:00",
+    "bedtimeEnd": "2025-11-23T10:12:43.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -329,10 +437,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.44,
+    "restfulness": null,
     "steps": 7505,
     "deepSleepMinutes": 70,
     "remSleepMinutes": 47,
     "sleepEfficiency": 86,
+    "sleepPhase5Min": "4444222222111111422344222211111433333333322222222221443",
+    "bedtimeStart": "2025-11-24T03:38:57.000-08:00",
+    "bedtimeEnd": "2025-11-24T08:09:35.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -341,10 +453,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.6,
+    "restfulness": null,
     "steps": 7695,
     "deepSleepMinutes": 82,
     "remSleepMinutes": 166,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "444422211111112333221221122211124333333322222222211223333333332222222223443333343333222222222223333332222",
+    "bedtimeStart": "2025-11-25T02:09:29.000-08:00",
+    "bedtimeEnd": "2025-11-25T10:50:23.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -353,10 +469,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.52,
+    "restfulness": null,
     "steps": 5164,
     "deepSleepMinutes": 83,
     "remSleepMinutes": 124,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "444422111111123222222212222121223333333224222222111233333422222112222333333333322224",
+    "bedtimeStart": "2025-11-26T03:36:30.000-08:00",
+    "bedtimeEnd": "2025-11-26T10:32:30.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -365,10 +485,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.74,
+    "restfulness": null,
     "steps": 5642,
     "deepSleepMinutes": 81,
     "remSleepMinutes": 111,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "444442211112232222111112222222242221111112222333333222222122223333333222222222244232222233332233222222224",
+    "bedtimeStart": "2025-11-27T02:32:58.000-08:00",
+    "bedtimeEnd": "2025-11-27T11:13:26.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -377,10 +501,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 6579,
     "deepSleepMinutes": 90,
     "remSleepMinutes": 106,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "44444222111112222111112211422333322222222211111223333333322222222222333334322222222334",
+    "bedtimeStart": "2025-11-28T02:50:58.000-08:00",
+    "bedtimeEnd": "2025-11-28T09:58:12.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -389,10 +517,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.76,
+    "restfulness": null,
     "steps": 8235,
     "deepSleepMinutes": 86,
     "remSleepMinutes": 94,
     "sleepEfficiency": 97,
+    "sleepPhase5Min": "422221111111122222111222111233333332222221122233333222222222223333332222212",
+    "bedtimeStart": "2025-11-29T04:27:59.000-08:00",
+    "bedtimeEnd": "2025-11-29T10:41:45.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -401,10 +533,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.78,
+    "restfulness": null,
     "steps": 5565,
     "deepSleepMinutes": 83,
     "remSleepMinutes": 54,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -413,10 +549,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.82,
+    "restfulness": null,
     "steps": 8745,
     "deepSleepMinutes": 66,
     "remSleepMinutes": 141,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "4224222111111222333222222221111122233333342222212222222333332223422212223333333332222222222422122333334",
+    "bedtimeStart": "2025-11-30T23:04:30.000-08:00",
+    "bedtimeEnd": "2025-12-01T07:36:24.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -425,10 +565,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.78,
+    "restfulness": null,
     "steps": 2971,
     "deepSleepMinutes": 88,
     "remSleepMinutes": 101,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "4444221111111122422211122211123433333222222122122211423233332222222222223434422223333332442222424",
+    "bedtimeStart": "2025-12-02T00:26:30.000-08:00",
+    "bedtimeEnd": "2025-12-02T08:30:47.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -437,10 +581,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.84,
+    "restfulness": null,
     "steps": 5042,
     "deepSleepMinutes": 94,
     "remSleepMinutes": 135,
     "sleepEfficiency": 88,
+    "sleepPhase5Min": "44444444444221122111112332222111111222213332222222211123433333333333222212222222223333332222222333",
+    "bedtimeStart": "2025-12-02T23:41:30.000-08:00",
+    "bedtimeEnd": "2025-12-03T07:51:48.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -449,10 +597,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.66,
+    "restfulness": null,
     "steps": 1947,
     "deepSleepMinutes": 78,
     "remSleepMinutes": 114,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "44442221111111111223221112222211123333322212222222222333333322222222222333333322222222223423324",
+    "bedtimeStart": "2025-12-04T00:20:59.000-08:00",
+    "bedtimeEnd": "2025-12-04T08:14:43.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -461,10 +613,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.8,
+    "restfulness": null,
     "steps": 4791,
     "deepSleepMinutes": 77,
     "remSleepMinutes": 152,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "4442411111111114223342221124222222233333322222222222212233333332222222212222233333322222222222222333333332222222234",
+    "bedtimeStart": "2025-12-04T22:14:00.000-08:00",
+    "bedtimeEnd": "2025-12-05T07:48:30.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -473,10 +629,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.46,
+    "restfulness": null,
     "steps": 6466,
     "deepSleepMinutes": 69,
     "remSleepMinutes": 128,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "4442221111112222222222221221222223334333222222111112333332222222222233332222224222223333332422222222222222333",
+    "bedtimeStart": "2025-12-06T02:02:31.000-08:00",
+    "bedtimeEnd": "2025-12-06T11:07:50.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -485,10 +645,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.58,
+    "restfulness": null,
     "steps": 3886,
     "deepSleepMinutes": 103,
     "remSleepMinutes": 179,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "44442211111111111123333222142422222114212233333333222111112224222223422222222222223333333222222222223333333332222222223333334",
+    "bedtimeStart": "2025-12-06T23:12:00.000-08:00",
+    "bedtimeEnd": "2025-12-07T09:36:21.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -497,10 +661,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.38,
+    "restfulness": null,
     "steps": 9388,
     "deepSleepMinutes": 46,
     "remSleepMinutes": 151,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "44444442211111222223332214211222221423333332222222222222222433333332222222222224222222233333333333222222222334",
+    "bedtimeStart": "2025-12-07T22:28:00.000-08:00",
+    "bedtimeEnd": "2025-12-08T07:33:36.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -509,10 +677,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.24,
+    "restfulness": null,
     "steps": 5526,
     "deepSleepMinutes": 103,
     "remSleepMinutes": 150,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "4422444222111222111233221112222112221123333322222222212222233333222222222221112233343222222433333332222222223333333324",
+    "bedtimeStart": "2025-12-08T21:52:01.000-08:00",
+    "bedtimeEnd": "2025-12-09T07:38:29.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -521,10 +693,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.26,
+    "restfulness": null,
     "steps": 2534,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 129,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "44444442211111111232222221114222112423433333222221211222222333332222222222224333333322222222333333",
+    "bedtimeStart": "2025-12-09T23:26:00.000-08:00",
+    "bedtimeEnd": "2025-12-10T07:33:11.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -533,10 +709,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.04,
+    "restfulness": null,
     "steps": 1147,
     "deepSleepMinutes": 92,
     "remSleepMinutes": 157,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "44221111411112232222221111222243332224244442221111133333222222122222233333332222222222222233332322222222233333422222222223333333",
+    "bedtimeStart": "2025-12-10T22:25:57.000-08:00",
+    "bedtimeEnd": "2025-12-11T09:04:33.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -545,10 +725,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.12,
+    "restfulness": null,
     "steps": 3936,
     "deepSleepMinutes": 107,
     "remSleepMinutes": 160,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "4422111111111233222212211112233333222211112222122333222221422222223333333244442242233332222222333333322222222223334",
+    "bedtimeStart": "2025-12-11T22:57:29.000-08:00",
+    "bedtimeEnd": "2025-12-12T08:28:02.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -557,10 +741,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.2,
+    "restfulness": null,
     "steps": 8297,
     "deepSleepMinutes": 80,
     "remSleepMinutes": 111,
     "sleepEfficiency": 96,
+    "sleepPhase5Min": "4422211111223222211112222221111233333322221112222233333322222222212233333422222222433332222224",
+    "bedtimeStart": "2025-12-13T02:22:00.000-08:00",
+    "bedtimeEnd": "2025-12-13T10:08:43.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -569,10 +757,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.04,
+    "restfulness": null,
     "steps": 4680,
     "deepSleepMinutes": 47,
     "remSleepMinutes": 115,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "4442222111223322111222221223333222222122222233333322222222222233333333222224423322224222222222",
+    "bedtimeStart": "2025-12-14T02:02:29.000-08:00",
+    "bedtimeEnd": "2025-12-14T09:49:44.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -581,10 +773,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.02,
+    "restfulness": null,
     "steps": 2821,
     "deepSleepMinutes": 104,
     "remSleepMinutes": 149,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "444221111111222114421111222212333222211224222112333322222222111123333333322222222222333333222222233333333222244",
+    "bedtimeStart": "2025-12-14T23:32:30.000-08:00",
+    "bedtimeEnd": "2025-12-15T08:45:06.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -593,10 +789,14 @@
     "resilienceScore": null,
     "resilienceLevel": null,
     "hrvBalance": null,
+    "restfulness": null,
     "steps": 1867,
     "deepSleepMinutes": null,
     "remSleepMinutes": null,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -605,10 +805,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.18,
+    "restfulness": null,
     "steps": 5299,
     "deepSleepMinutes": 82,
     "remSleepMinutes": 128,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "44442211111112222211111122222233322222222221112233333222222221222223333333332222222222233333232222222333322",
+    "bedtimeStart": "2025-12-16T22:52:30.000-08:00",
+    "bedtimeEnd": "2025-12-17T07:47:09.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -617,10 +821,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.14,
+    "restfulness": null,
     "steps": 4778,
     "deepSleepMinutes": 119,
     "remSleepMinutes": 150,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "444421111111114222242111111212242212233333322122211112222222212333332222222222233333222244222332224222223333333222211222323344",
+    "bedtimeStart": "2025-12-18T00:02:31.000-08:00",
+    "bedtimeEnd": "2025-12-18T10:29:02.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -629,10 +837,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.04,
+    "restfulness": null,
     "steps": 5236,
     "deepSleepMinutes": 73,
     "remSleepMinutes": 123,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "424211111111122222222122221122211123333322224222212222223332222222222222333333222222222233334442222223333334",
+    "bedtimeStart": "2025-12-18T23:43:58.000-08:00",
+    "bedtimeEnd": "2025-12-19T08:39:04.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -641,10 +853,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.06,
+    "restfulness": null,
     "steps": 5043,
     "deepSleepMinutes": 58,
     "remSleepMinutes": 47,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -653,10 +869,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.28,
+    "restfulness": null,
     "steps": 6911,
     "deepSleepMinutes": 86,
     "remSleepMinutes": 148,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "4444422224211111111122332222214242222122222333333332221111112223333242222222233333323222222221233333332322223222222224",
+    "bedtimeStart": "2025-12-21T00:23:58.000-08:00",
+    "bedtimeEnd": "2025-12-21T10:09:41.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -665,10 +885,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.26,
+    "restfulness": null,
     "steps": 8780,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 76,
     "sleepEfficiency": 87,
+    "sleepPhase5Min": "444444422222122111111123322222222211111223333332222222223333322221112222223444222",
+    "bedtimeStart": "2025-12-22T03:31:59.000-08:00",
+    "bedtimeEnd": "2025-12-22T10:14:34.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -677,10 +901,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.26,
+    "restfulness": null,
     "steps": 3195,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 81,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "444222111111113322222211222333333322111111222223333333222222224244",
+    "bedtimeStart": "2025-12-23T03:03:31.000-08:00",
+    "bedtimeEnd": "2025-12-23T08:30:35.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -689,10 +917,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.48,
+    "restfulness": null,
     "steps": 6479,
     "deepSleepMinutes": 116,
     "remSleepMinutes": 139,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "4442211111111111233422112222111112233333332222222222111233333333222222221112333334422222222333332222222224",
+    "bedtimeStart": "2025-12-24T01:42:32.000-08:00",
+    "bedtimeEnd": "2025-12-24T10:31:23.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -701,10 +933,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": 0.44,
+    "restfulness": null,
     "steps": 5764,
     "deepSleepMinutes": 78,
     "remSleepMinutes": 62,
     "sleepEfficiency": 83,
+    "sleepPhase5Min": "4444444444224422112333322111221111111223322222222222222223333333221244",
+    "bedtimeStart": "2025-12-25T02:35:58.000-08:00",
+    "bedtimeEnd": "2025-12-25T08:21:58.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -713,10 +949,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": 0.62,
+    "restfulness": null,
     "steps": 7037,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 138,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "444221111112233222211111112333333322222222222221223333333332222221112223333322222222223433322222224",
+    "bedtimeStart": "2025-12-26T01:56:30.000-08:00",
+    "bedtimeEnd": "2025-12-26T10:07:37.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -725,10 +965,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": 0.62,
+    "restfulness": null,
     "steps": 9322,
     "deepSleepMinutes": 94,
     "remSleepMinutes": 62,
     "sleepEfficiency": 87,
+    "sleepPhase5Min": "444442221111111223221111111444232222222112233333323222222222422223333424",
+    "bedtimeStart": "2025-12-26T23:55:31.000-08:00",
+    "bedtimeEnd": "2025-12-27T05:54:27.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -737,10 +981,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.76,
+    "restfulness": null,
     "steps": 9634,
     "deepSleepMinutes": 79,
     "remSleepMinutes": 144,
     "sleepEfficiency": 79,
+    "sleepPhase5Min": "44442244442444444444442211111123332222222222222221144333333222222122333333333333222222222222333333322224",
+    "bedtimeStart": "2025-12-27T23:24:58.000-08:00",
+    "bedtimeEnd": "2025-12-28T08:03:48.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -749,10 +997,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.74,
+    "restfulness": null,
     "steps": 7688,
     "deepSleepMinutes": 110,
     "remSleepMinutes": 99,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "44442211111112322221214222222333332112222222211233333332221222222224",
+    "bedtimeStart": "2025-12-29T00:13:31.000-08:00",
+    "bedtimeEnd": "2025-12-29T05:49:02.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -761,10 +1013,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.7,
+    "restfulness": null,
     "steps": 11484,
     "deepSleepMinutes": 79,
     "remSleepMinutes": 129,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "4444422211111121213333222242111114433333332222221222222233333333344422222222233332333222222222242",
+    "bedtimeStart": "2025-12-29T22:49:31.000-10:00",
+    "bedtimeEnd": "2025-12-30T06:54:19.000-10:00",
     "isStrengthDay": false
   },
   {
@@ -773,10 +1029,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.8,
+    "restfulness": null,
     "steps": 12219,
     "deepSleepMinutes": 126,
     "remSleepMinutes": 133,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "444222221111122332322211111121111222233222121111223343333222422221422222333333322222222223232232223222222222334",
+    "bedtimeStart": "2025-12-30T21:30:01.000-10:00",
+    "bedtimeEnd": "2025-12-31T06:41:03.000-10:00",
     "isStrengthDay": false
   },
   {
@@ -785,10 +1045,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.7,
+    "restfulness": null,
     "steps": 6009,
     "deepSleepMinutes": 91,
     "remSleepMinutes": 132,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "4442222111111143322222111122214233333322222112222223333334442222123333322222222333333322222224",
+    "bedtimeStart": "2026-01-01T00:23:31.000-10:00",
+    "bedtimeEnd": "2026-01-01T08:10:44.000-10:00",
     "isStrengthDay": false
   },
   {
@@ -797,10 +1061,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.54,
+    "restfulness": null,
     "steps": 11275,
     "deepSleepMinutes": 81,
     "remSleepMinutes": 143,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "44221111111112132322221114122233323342222144444211222222223333332222222222222233333322222222222233332222222222223333",
+    "bedtimeStart": "2026-01-01T22:05:58.000-10:00",
+    "bedtimeEnd": "2026-01-02T07:43:21.000-10:00",
     "isStrengthDay": false
   },
   {
@@ -809,10 +1077,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.52,
+    "restfulness": null,
     "steps": 5663,
     "deepSleepMinutes": 101,
     "remSleepMinutes": 126,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "4444221111112222222111111121221443333333222222112122222222333344222222212233333322222222333333333222222222222134",
+    "bedtimeStart": "2026-01-02T22:34:57.000-10:00",
+    "bedtimeEnd": "2026-01-03T07:52:49.000-10:00",
     "isStrengthDay": false
   },
   {
@@ -821,10 +1093,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.24,
+    "restfulness": null,
     "steps": 4242,
     "deepSleepMinutes": 74,
     "remSleepMinutes": 69,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "44242211111112224422211112233333322222221111233333222212223333222222244",
+    "bedtimeStart": "2026-01-04T04:37:58.000-08:00",
+    "bedtimeEnd": "2026-01-04T10:29:19.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -833,10 +1109,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.16,
+    "restfulness": null,
     "steps": 8656,
     "deepSleepMinutes": 94,
     "remSleepMinutes": 112,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "4442111111112222212221111222233422222221112222333333322212222222222333322224442222222222222222333332222222211232333322",
+    "bedtimeStart": "2026-01-04T22:38:59.000-08:00",
+    "bedtimeEnd": "2026-01-05T08:28:26.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -845,10 +1125,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.08,
+    "restfulness": null,
     "steps": 5560,
     "deepSleepMinutes": 90,
     "remSleepMinutes": 130,
     "sleepEfficiency": 89,
+    "sleepPhase5Min": "444421111111111122232111111224222222333333422222222222222233332233344222122221233333333222222222243333334444",
+    "bedtimeStart": "2026-01-05T23:13:28.000-08:00",
+    "bedtimeEnd": "2026-01-06T08:10:09.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -857,10 +1141,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.02,
+    "restfulness": null,
     "steps": 8635,
     "deepSleepMinutes": 107,
     "remSleepMinutes": 116,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "444221111121111111322121121112124442222221112134222222222222333333333222222222222222222223333333222222222222233333222",
+    "bedtimeStart": "2026-01-06T22:24:30.000-08:00",
+    "bedtimeEnd": "2026-01-07T08:07:43.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -869,10 +1157,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.08,
+    "restfulness": null,
     "steps": 5469,
     "deepSleepMinutes": 72,
     "remSleepMinutes": 104,
     "sleepEfficiency": 97,
+    "sleepPhase5Min": "4422222121111111222322222221111222222233332222212221222222222223333333222222222222222333332322222222",
+    "bedtimeStart": "2026-01-07T23:17:56.000-08:00",
+    "bedtimeEnd": "2026-01-08T07:34:18.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -881,10 +1173,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.14,
+    "restfulness": null,
     "steps": 11258,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 170,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "44421111111122222222111111122333422222211222333333422222222223333332123222222333333332222222222222333332222222223333222222222244",
+    "bedtimeStart": "2026-01-08T21:55:27.000-08:00",
+    "bedtimeEnd": "2026-01-09T08:31:08.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -893,10 +1189,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.28,
+    "restfulness": null,
     "steps": 6364,
     "deepSleepMinutes": 74,
     "remSleepMinutes": 142,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "4442422111121123322211111112222233333322222211222224333333222222222222333333442222222233333222222223333332222222",
+    "bedtimeStart": "2026-01-09T23:34:27.000-08:00",
+    "bedtimeEnd": "2026-01-10T08:52:24.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -905,10 +1205,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.12,
+    "restfulness": null,
     "steps": 17003,
     "deepSleepMinutes": 95,
     "remSleepMinutes": 145,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "44444221121111332222222211222111142333332222222222222223333332222222212233333222222222233344424223332222222222334",
+    "bedtimeStart": "2026-01-10T23:46:27.000-08:00",
+    "bedtimeEnd": "2026-01-11T09:06:30.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -917,10 +1221,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.28,
+    "restfulness": null,
     "steps": 4773,
     "deepSleepMinutes": 87,
     "remSleepMinutes": 117,
     "sleepEfficiency": 89,
+    "sleepPhase5Min": "444422111121111123322122111122242222333322221111222442233333324222222222223333332222222222223333344442223223",
+    "bedtimeStart": "2026-01-11T23:15:03.000-08:00",
+    "bedtimeEnd": "2026-01-12T08:12:53.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -929,10 +1237,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.14,
+    "restfulness": null,
     "steps": 3608,
     "deepSleepMinutes": 62,
     "remSleepMinutes": 141,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "442222111142222242122111122222333332222222222222112333333222222222222333333333222222222333333333322",
+    "bedtimeStart": "2026-01-12T23:31:30.000-08:00",
+    "bedtimeEnd": "2026-01-13T07:45:20.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -941,10 +1253,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": -0.06,
+    "restfulness": null,
     "steps": 2635,
     "deepSleepMinutes": 70,
     "remSleepMinutes": 103,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "4444422111111112222121212222223333442122222222112333333222222222233333334224422222222223334",
+    "bedtimeStart": "2026-01-14T00:11:31.000-08:00",
+    "bedtimeEnd": "2026-01-14T07:42:14.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -953,10 +1269,14 @@
     "resilienceScore": null,
     "resilienceLevel": null,
     "hrvBalance": null,
+    "restfulness": null,
     "steps": 8801,
     "deepSleepMinutes": null,
     "remSleepMinutes": null,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": true
   },
   {
@@ -965,10 +1285,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": 0,
+    "restfulness": null,
     "steps": 3602,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 111,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "4444444222222122222111111111124333222122222111114423333332222222222233333332422222222333332222224",
+    "bedtimeStart": "2026-01-16T00:25:29.000-08:00",
+    "bedtimeEnd": "2026-01-16T08:25:43.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -977,10 +1301,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": -0.2,
+    "restfulness": null,
     "steps": 9949,
     "deepSleepMinutes": 59,
     "remSleepMinutes": 130,
     "sleepEfficiency": 96,
+    "sleepPhase5Min": "4421111111222221212111222233333222222422222223333333322222222222223333332322222222222233333322",
+    "bedtimeStart": "2026-01-16T23:13:31.000-08:00",
+    "bedtimeEnd": "2026-01-17T07:02:40.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -989,10 +1317,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": 0.28,
+    "restfulness": null,
     "steps": 10019,
     "deepSleepMinutes": 95,
     "remSleepMinutes": 164,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "4442111411111142222112111111122333222222222222233333332222244422222333334222222221233333332222223333332222222222333334",
+    "bedtimeStart": "2026-01-17T23:18:32.000-08:00",
+    "bedtimeEnd": "2026-01-18T09:06:56.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1001,10 +1333,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": -0.14,
+    "restfulness": null,
     "steps": 8268,
     "deepSleepMinutes": 67,
     "remSleepMinutes": 111,
     "sleepEfficiency": 96,
+    "sleepPhase5Min": "442221112211122222211112212221123333322221222223333332222222222233333322222222233334",
+    "bedtimeStart": "2026-01-19T02:22:59.000-08:00",
+    "bedtimeEnd": "2026-01-19T09:18:39.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1013,10 +1349,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": 0.38,
+    "restfulness": null,
     "steps": 8245,
     "deepSleepMinutes": 104,
     "remSleepMinutes": 122,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "42211111111112222211111224221222222222233333322222222111111123333222222222222222333333333222222222223334444",
+    "bedtimeStart": "2026-01-19T22:49:00.000-08:00",
+    "bedtimeEnd": "2026-01-20T07:42:44.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1025,10 +1365,14 @@
     "resilienceScore": 2,
     "resilienceLevel": "adequate",
     "hrvBalance": 0.3,
+    "restfulness": null,
     "steps": 7999,
     "deepSleepMinutes": 86,
     "remSleepMinutes": 125,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "44422111111112223324221111222223333222122221122111223334422222222222222333333322222222222333333322222222233234",
+    "bedtimeStart": "2026-01-20T23:00:01.000-08:00",
+    "bedtimeEnd": "2026-01-21T08:10:18.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1037,10 +1381,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.42,
+    "restfulness": null,
     "steps": 2626,
     "deepSleepMinutes": 83,
     "remSleepMinutes": 133,
     "sleepEfficiency": 95,
+    "sleepPhase5Min": "4422211111111233222211112221223332221112222222222233333332222222222222222333333332222222223322222223333334",
+    "bedtimeStart": "2026-01-21T23:22:03.000-08:00",
+    "bedtimeEnd": "2026-01-22T08:12:03.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1049,10 +1397,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.52,
+    "restfulness": null,
     "steps": 6334,
     "deepSleepMinutes": 56,
     "remSleepMinutes": 129,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "442122421111111122422222242212222222222333333222222222242222222222123333332222222222233333332222242233333222324",
+    "bedtimeStart": "2026-01-22T23:02:28.000-08:00",
+    "bedtimeEnd": "2026-01-23T08:13:51.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1061,10 +1413,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 7308,
     "deepSleepMinutes": 81,
     "remSleepMinutes": 123,
     "sleepEfficiency": 89,
+    "sleepPhase5Min": "44444224421144211112222222212222211113333222222221111223333422122222222333333222222222222233333333222222222212332223422",
+    "bedtimeStart": "2026-01-23T22:50:58.000-08:00",
+    "bedtimeEnd": "2026-01-24T08:42:29.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1073,10 +1429,14 @@
     "resilienceScore": null,
     "resilienceLevel": null,
     "hrvBalance": null,
+    "restfulness": null,
     "steps": 7755,
     "deepSleepMinutes": null,
     "remSleepMinutes": null,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   },
   {
@@ -1085,10 +1445,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.7,
+    "restfulness": null,
     "steps": 5540,
     "deepSleepMinutes": 106,
     "remSleepMinutes": 125,
     "sleepEfficiency": 96,
+    "sleepPhase5Min": "44422111111111132242222212211111233332211222211223333332222222222222233333334322212223333333222222222222",
+    "bedtimeStart": "2026-01-26T00:00:28.000-08:00",
+    "bedtimeEnd": "2026-01-26T08:39:10.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1097,10 +1461,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.7,
+    "restfulness": null,
     "steps": 4957,
     "deepSleepMinutes": 101,
     "remSleepMinutes": 96,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "42424422222111122232321111112111222111112333322222222211222222442222222222333333333322222222222422222222333",
+    "bedtimeStart": "2026-01-26T23:48:58.000-08:00",
+    "bedtimeEnd": "2026-01-27T08:41:58.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1109,10 +1477,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.56,
+    "restfulness": null,
     "steps": 6435,
     "deepSleepMinutes": 85,
     "remSleepMinutes": 168,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "4422211111111111123333212212111122233332222222422212233343334442222222222223333322222222222222233333333222222333333",
+    "bedtimeStart": "2026-01-27T22:16:32.000-08:00",
+    "bedtimeEnd": "2026-01-28T07:51:44.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1121,10 +1493,14 @@
     "resilienceScore": 3,
     "resilienceLevel": "solid",
     "hrvBalance": 0.68,
+    "restfulness": null,
     "steps": 8993,
     "deepSleepMinutes": 92,
     "remSleepMinutes": 150,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "444222111111212222211112222244222223333333322112222211222233333322222222222333343332222222222243344422222222333333322211112244",
+    "bedtimeStart": "2026-01-28T23:53:59.000-08:00",
+    "bedtimeEnd": "2026-01-29T10:22:26.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1133,10 +1509,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.58,
+    "restfulness": null,
     "steps": 9568,
     "deepSleepMinutes": 106,
     "remSleepMinutes": 123,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "44444211111111111244422111111122222221233333322222222222222222422233333332222222122222223344224222233333332222212233",
+    "bedtimeStart": "2026-01-29T23:05:28.000-08:00",
+    "bedtimeEnd": "2026-01-30T08:44:00.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1145,10 +1525,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.64,
+    "restfulness": null,
     "steps": 7704,
     "deepSleepMinutes": 87,
     "remSleepMinutes": 129,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "4422111112111222222442211114233333322222221114444233332222222222211223333333322222222223333232242222222333322",
+    "bedtimeStart": "2026-01-30T23:39:58.000-08:00",
+    "bedtimeEnd": "2026-01-31T08:42:04.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1157,10 +1541,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.66,
+    "restfulness": null,
     "steps": 9407,
     "deepSleepMinutes": 87,
     "remSleepMinutes": 150,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "44244221111112333222211212244444423222211111222223333322112221142222333332222222222233333332222222222233334422222221124334",
+    "bedtimeStart": "2026-02-01T00:12:31.000-08:00",
+    "bedtimeEnd": "2026-02-01T10:20:19.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1169,10 +1557,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.68,
+    "restfulness": null,
     "steps": 8874,
     "deepSleepMinutes": 78,
     "remSleepMinutes": 114,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "4444422111112212332222221122222222222333333222222211122442222222233333222222222222343333332224",
+    "bedtimeStart": "2026-02-02T00:16:58.000-08:00",
+    "bedtimeEnd": "2026-02-02T08:02:00.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1181,10 +1573,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 8350,
     "deepSleepMinutes": 54,
     "remSleepMinutes": 41,
     "sleepEfficiency": 88,
+    "sleepPhase5Min": "44422211111222233324222211122222222111233333",
+    "bedtimeStart": "2026-02-02T23:36:28.000-08:00",
+    "bedtimeEnd": "2026-02-03T03:14:28.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1193,10 +1589,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.68,
+    "restfulness": null,
     "steps": 8741,
     "deepSleepMinutes": 89,
     "remSleepMinutes": 123,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "4444421111121111232322221111111111223333222222422222222233343332222222222233333222222222222333333322222222",
+    "bedtimeStart": "2026-02-03T22:29:00.000-08:00",
+    "bedtimeEnd": "2026-02-04T07:18:29.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1205,10 +1605,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 8441,
     "deepSleepMinutes": 96,
     "remSleepMinutes": 148,
     "sleepEfficiency": 94,
+    "sleepPhase5Min": "44221121122112211233222212422111223333222111222222222233332222222222111123333332222222423333344332221223333332",
+    "bedtimeStart": "2026-02-04T22:50:28.000-08:00",
+    "bedtimeEnd": "2026-02-05T07:58:05.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1217,10 +1621,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 20950,
     "deepSleepMinutes": 108,
     "remSleepMinutes": 121,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "4442211111111112222221424211111142233333322422222211122233332222222222333332222122223333324442222222233344",
+    "bedtimeStart": "2026-02-05T23:42:02.000-08:00",
+    "bedtimeEnd": "2026-02-06T08:27:45.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1229,10 +1637,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 3641,
     "deepSleepMinutes": 92,
     "remSleepMinutes": 114,
     "sleepEfficiency": 91,
+    "sleepPhase5Min": "4444442221111111112233221221122333332224221222333322221222123332222222111223442222222233333333222",
+    "bedtimeStart": "2026-02-07T03:40:58.000-08:00",
+    "bedtimeEnd": "2026-02-07T11:45:27.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1241,10 +1653,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.72,
+    "restfulness": null,
     "steps": 11232,
     "deepSleepMinutes": 77,
     "remSleepMinutes": 133,
     "sleepEfficiency": 90,
+    "sleepPhase5Min": "4442221111141222111124442212222211333332322211222212223333222222222222333322222222244422223333333322222222433323344",
+    "bedtimeStart": "2026-02-07T23:04:29.000-08:00",
+    "bedtimeEnd": "2026-02-08T08:36:33.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1253,10 +1669,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.78,
+    "restfulness": null,
     "steps": 2654,
     "deepSleepMinutes": 63,
     "remSleepMinutes": 115,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "4444442211111122222211122222211133322222222222222223333322222242222224333333322222222222233333322222223",
+    "bedtimeStart": "2026-02-08T23:24:31.000-08:00",
+    "bedtimeEnd": "2026-02-09T07:59:50.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1265,10 +1685,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.78,
+    "restfulness": null,
     "steps": 13283,
     "deepSleepMinutes": 111,
     "remSleepMinutes": 145,
     "sleepEfficiency": 92,
+    "sleepPhase5Min": "444221111112112222111114221112444333332221122211224233333322222222221122233333322222224433333334222224233333",
+    "bedtimeStart": "2026-02-09T23:05:58.000-08:00",
+    "bedtimeEnd": "2026-02-10T08:03:37.000-08:00",
     "isStrengthDay": true
   },
   {
@@ -1277,10 +1701,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.82,
+    "restfulness": null,
     "steps": 11611,
     "deepSleepMinutes": 79,
     "remSleepMinutes": 141,
     "sleepEfficiency": 93,
+    "sleepPhase5Min": "44422211111222242211211222222333332221122442222221112333333222222222222222433333332222222222333233322222422333",
+    "bedtimeStart": "2026-02-10T23:07:59.000-08:00",
+    "bedtimeEnd": "2026-02-11T08:16:23.000-08:00",
     "isStrengthDay": false
   },
   {
@@ -1289,10 +1717,14 @@
     "resilienceScore": 4,
     "resilienceLevel": "strong",
     "hrvBalance": 0.84,
+    "restfulness": null,
     "steps": null,
     "deepSleepMinutes": null,
     "remSleepMinutes": null,
     "sleepEfficiency": null,
+    "sleepPhase5Min": null,
+    "bedtimeStart": null,
+    "bedtimeEnd": null,
     "isStrengthDay": false
   }
 ]

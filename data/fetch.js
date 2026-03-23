@@ -3,10 +3,11 @@
  * Fetches daily_resilience, daily_readiness, workout, daily_activity, sleep
  * for 2025-10-28 to 2026-02-12, merges by date.
  *
- * Run: npm run fetch          → data/daily.json (YOUR_TOKEN / OURA_PAT)
- * Run: npm run fetch:dale     → data/dale.json (DALE_OURA_TOKEN; partner account)
+ * Run: npm run fetch                    → data/daily.json (OURA_TOKEN / OURA_PAT)
+ * Run: npm run fetch -- --user dale     → data/dale.json (DALE_TOKEN)
+ * Run: npm run fetch:dale               → same as --user dale
  *
- * Partner OAuth app: DALE_CLIENT_ID + DALE_CLIENT_SECRET; obtain token via npm run get-token:dale.
+ * Partner OAuth app: DALE_CLIENT_ID + DALE_CLIENT_SECRET; token via npm run get-token -- --user dale.
  */
 
 import "dotenv/config";
@@ -32,10 +33,14 @@ const RESILIENCE_LEVEL_MAP = {
  */
 function getTokenFor(target) {
   if (target === "dale") {
-    const token = process.env.DALE_OURA_TOKEN || process.env.DALE_OURA_PAT;
+    const token =
+      process.env.DALE_TOKEN ||
+      process.env.DALE_OURA_TOKEN ||
+      process.env.DALE_OURA_PAT ||
+      process.env.DALE_PAT;
     if (!token) {
       throw new Error(
-        "DALE_OURA_TOKEN or DALE_OURA_PAT not set. Run npm run get-token:dale (Dale signs in to his Oura app)."
+        "DALE_TOKEN (or legacy DALE_OURA_TOKEN / PAT) not set. Run npm run get-token -- --user dale."
       );
     }
     return token;
@@ -63,8 +68,10 @@ async function validateToken(token, label) {
 
 /**
  * Fetch all pages for an endpoint using next_token pagination.
+ * @param {{ optionalScope?: boolean }} [options] If true, 401 (missing OAuth scope) returns [] instead of throwing.
  */
-async function fetchPaginated(token, endpoint, params = {}) {
+async function fetchPaginated(token, endpoint, params = {}, options = {}) {
+  const { optionalScope = false } = options;
   const allData = [];
   let nextToken = null;
 
@@ -83,6 +90,12 @@ async function fetchPaginated(token, endpoint, params = {}) {
 
     if (!res.ok) {
       const text = await res.text();
+      if (optionalScope && res.status === 401) {
+        console.warn(
+          `Oura API ${endpoint}: token lacks scope (${res.status}). Continuing with no ${endpoint} data.`
+        );
+        return [];
+      }
       throw new Error(`Oura API ${endpoint}: ${res.status} ${res.statusText}\n${text}`);
     }
 
@@ -101,7 +114,7 @@ async function fetchAll(token) {
   const [resilience, readiness, workouts, activity, sleep] = await Promise.all([
     fetchPaginated(token, "daily_resilience"),
     fetchPaginated(token, "daily_readiness"),
-    fetchPaginated(token, "workout"),
+    fetchPaginated(token, "workout", {}, { optionalScope: true }),
     fetchPaginated(token, "daily_activity"),
     fetchPaginated(token, "sleep"),
   ]);
@@ -158,10 +171,15 @@ function defaultDay(day, strengthDates) {
     resilienceScore: null,
     resilienceLevel: null,
     hrvBalance: null,
+    restfulness: null,
     steps: null,
     deepSleepMinutes: null,
     remSleepMinutes: null,
     sleepEfficiency: null,
+    /** long_sleep: hypnogram for couples phase concordance (5 min per char) */
+    sleepPhase5Min: null,
+    bedtimeStart: null,
+    bedtimeEnd: null,
     isStrengthDay: strengthDates.has(day),
   };
 }
@@ -190,6 +208,8 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
     const existing = byDate.get(day) || defaultDay(day, strengthDates);
     existing.readinessScore = r.score ?? null;
     existing.hrvBalance = remapHrvBalance(r.contributors?.hrv_balance);
+    const rf = r.contributors?.restfulness;
+    if (rf != null && typeof rf === "number") existing.restfulness = rf;
     byDate.set(day, existing);
   }
 
@@ -217,6 +237,16 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
       existing.sleepEfficiency = s.efficiency;
     }
 
+    if (s.type === "long_sleep" && s.sleep_phase_5_min && typeof s.sleep_phase_5_min === "string") {
+      const prev = (existing.sleepPhase5Min || "").length;
+      const next = s.sleep_phase_5_min.length;
+      if (next >= prev) {
+        existing.sleepPhase5Min = s.sleep_phase_5_min;
+        existing.bedtimeStart = s.bedtime_start ?? null;
+        existing.bedtimeEnd = s.bedtime_end ?? null;
+      }
+    }
+
     byDate.set(day, existing);
   }
 
@@ -227,8 +257,20 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
   return merged;
 }
 
+function parseFetchArgs(argv) {
+  let user = null;
+  for (let i = 2; i < argv.length; i++) {
+    if (argv[i] === "--user" && argv[i + 1]) {
+      user = argv[++i];
+    }
+  }
+  if (user === "dale") return "dale";
+  if (process.argv[2] === "dale") return "dale";
+  return "me";
+}
+
 async function main() {
-  const target = process.argv[2] === "dale" ? "dale" : "me";
+  const target = parseFetchArgs(process.argv);
   const token = getTokenFor(target);
   const label = target === "dale" ? "dale" : "you";
   await validateToken(token, label);

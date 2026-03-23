@@ -1,21 +1,20 @@
 /**
- * One-time OAuth2 flow to obtain Oura access token.
+ * OAuth2 flow for Oura access token (primary account or Dale).
+ *
+ * Each run always starts a new browser authorization request. This script never
+ * reads, validates, or reuses OURA_TOKEN / DALE_TOKEN — it only overwrites the
+ * matching key in .env after a successful code exchange.
+ *
  * Run: npm run get-token
+ * Run: npm run get-token -- --user dale
  *
- * Prerequisites:
- * - OURA_CLIENT_ID and OURA_CLIENT_SECRET in .env
- * - Add http://localhost:3000/callback to your Oura OAuth app's redirect URIs
+ * Callback ports (different so both can be configured in Oura without clashing):
+ * - Default user: OURA_OAUTH_PORT (default 3000) → http://localhost:3000/callback
+ * - Dale: DALE_OAUTH_PORT (default 3001) → http://localhost:3001/callback
  *
- * Partner account (separate Oura OAuth app): use npm run get-token:dale on port 3001.
- *
- * Flow:
- * 1. Starts Express on port 3000
- * 2. Opens browser to Oura authorization URL (scopes: daily workout personal)
- * 3. User authorizes in browser
- * 4. Oura redirects to /callback with ?code=...
- * 5. Exchanges code for access token
- * 6. Appends OURA_TOKEN to .env
- * 7. Shuts down
+ * Env:
+ * - Default: OURA_CLIENT_ID, OURA_CLIENT_SECRET → saves OURA_TOKEN
+ * - Dale: DALE_CLIENT_ID, DALE_CLIENT_SECRET → saves DALE_TOKEN
  */
 
 import "dotenv/config";
@@ -26,89 +25,90 @@ import { fileURLToPath } from "url";
 import open from "open";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const REDIRECT_URI = "http://localhost:3000/callback";
-// Use only documented Oura scopes. Invalid names (e.g. ring_configuration, heart_health) may cause issues.
+
 const SCOPES = "email personal daily heartrate workout tag session spo2 stress";
+
+function parseUserArg(argv) {
+  for (let i = 2; i < argv.length; i++) {
+    if (argv[i] === "--user" && argv[i + 1]) return argv[i + 1].toLowerCase();
+  }
+  return null;
+}
 
 const app = express();
 let server;
 
-app.get("/callback", async (req, res) => {
-  const { code, error } = req.query;
+function createCallbackHandler(config) {
+  return async (req, res) => {
+    const { code, error } = req.query;
 
-  if (error) {
-    res.send(`<h1>Authorization failed</h1><p>${error}</p>`);
-    shutdown(1);
-    return;
-  }
-
-  if (!code) {
-    res.send("<h1>No authorization code received</h1>");
-    shutdown(1);
-    return;
-  }
-
-  const clientId = process.env.OURA_CLIENT_ID;
-  const clientSecret = process.env.OURA_CLIENT_SECRET;
-
-  if (!clientId || !clientSecret) {
-    res.send("<h1>Missing OURA_CLIENT_ID or OURA_CLIENT_SECRET in .env</h1>");
-    shutdown(1);
-    return;
-  }
-
-  try {
-    const tokenRes = await fetch("https://api.ouraring.com/oauth/token", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        grant_type: "authorization_code",
-        code,
-        client_id: clientId,
-        client_secret: clientSecret,
-        redirect_uri: REDIRECT_URI,
-      }),
-    });
-
-    const data = await tokenRes.json();
-
-    if (!tokenRes.ok) {
-      res.send(`<h1>Token exchange failed</h1><pre>${JSON.stringify(data, null, 2)}</pre>`);
+    if (error) {
+      res.send(`<h1>Authorization failed</h1><p>${error}</p>`);
       shutdown(1);
       return;
     }
 
-    const accessToken = data.access_token;
-    console.log("Token response scope (granted):", data.scope ?? "(not in response)");
-    if (data.scope) {
-      console.log("Granted scopes:", data.scope.split(" ").join(", "));
+    if (!code) {
+      res.send("<h1>No authorization code received</h1>");
+      shutdown(1);
+      return;
     }
 
-    const envPath = join(__dirname, "..", ".env");
+    const { clientId, clientSecret, redirectUri, tokenEnvKey, successHtml } = config;
 
-    // Update or append OURA_TOKEN
-    let envContent = readFileSync(envPath, "utf8");
-    if (envContent.includes("OURA_TOKEN=")) {
-      envContent = envContent.replace(/OURA_TOKEN=.*/m, `OURA_TOKEN=${accessToken}`);
-      writeFileSync(envPath, envContent, "utf8");
-    } else {
-      appendFileSync(envPath, `\nOURA_TOKEN=${accessToken}\n`, "utf8");
+    if (!clientId || !clientSecret) {
+      res.send(`<h1>Missing OAuth client credentials in .env</h1>`);
+      shutdown(1);
+      return;
     }
 
-    res.send(`
-      <h1>Success!</h1>
-      <p>Access token saved to .env as OURA_TOKEN.</p>
-      <p>You can close this tab. The server will shut down.</p>
-    `);
+    try {
+      const tokenRes = await fetch("https://api.ouraring.com/oauth/token", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          grant_type: "authorization_code",
+          code,
+          client_id: clientId,
+          client_secret: clientSecret,
+          redirect_uri: redirectUri,
+        }),
+      });
 
-    console.log("Token saved to .env as OURA_TOKEN.");
-    shutdown(0);
-  } catch (err) {
-    res.send(`<h1>Error</h1><pre>${err.message}</pre>`);
-    console.error(err);
-    shutdown(1);
-  }
-});
+      const data = await tokenRes.json();
+
+      if (!tokenRes.ok) {
+        res.send(`<h1>Token exchange failed</h1><pre>${JSON.stringify(data, null, 2)}</pre>`);
+        shutdown(1);
+        return;
+      }
+
+      const accessToken = data.access_token;
+      console.log("Token response scope (granted):", data.scope ?? "(not in response)");
+      if (data.scope) {
+        console.log("Granted scopes:", data.scope.split(" ").join(", "));
+      }
+
+      const envPath = join(__dirname, "..", ".env");
+      let envContent = readFileSync(envPath, "utf8");
+      const line = new RegExp(`^${tokenEnvKey}=.*`, "m");
+      if (line.test(envContent)) {
+        envContent = envContent.replace(line, `${tokenEnvKey}=${accessToken}`);
+        writeFileSync(envPath, envContent, "utf8");
+      } else {
+        appendFileSync(envPath, `\n${tokenEnvKey}=${accessToken}\n`, "utf8");
+      }
+
+      res.send(successHtml);
+      console.log(`${tokenEnvKey} saved to .env.`);
+      shutdown(0);
+    } catch (err) {
+      res.send(`<h1>Error</h1><pre>${err.message}</pre>`);
+      console.error(err);
+      shutdown(1);
+    }
+  };
+}
 
 function shutdown(exitCode) {
   if (server) server.close(() => process.exit(exitCode));
@@ -116,27 +116,63 @@ function shutdown(exitCode) {
 }
 
 async function main() {
-  const clientId = process.env.OURA_CLIENT_ID;
-  const clientSecret = process.env.OURA_CLIENT_SECRET;
+  const user = parseUserArg(process.argv);
+  const isDale = user === "dale";
+
+  const PORT = isDale
+    ? Number(process.env.DALE_OAUTH_PORT) || 3001
+    : Number(process.env.OURA_OAUTH_PORT) || 3000;
+
+  const REDIRECT_URI = `http://localhost:${PORT}/callback`;
+
+  const clientId = isDale ? process.env.DALE_CLIENT_ID : process.env.OURA_CLIENT_ID;
+  const clientSecret = isDale ? process.env.DALE_CLIENT_SECRET : process.env.OURA_CLIENT_SECRET;
+  const tokenEnvKey = isDale ? "DALE_TOKEN" : "OURA_TOKEN";
 
   if (!clientId || !clientSecret) {
-    console.error("OURA_CLIENT_ID and OURA_CLIENT_SECRET must be set in .env");
+    console.error(
+      isDale
+        ? "DALE_CLIENT_ID and DALE_CLIENT_SECRET must be set in .env"
+        : "OURA_CLIENT_ID and OURA_CLIENT_SECRET must be set in .env"
+    );
     process.exit(1);
   }
+
+  if (user && user !== "dale") {
+    console.error('Unknown --user (only "dale" is supported; omit for primary account).');
+    process.exit(1);
+  }
+
+  app.get(
+    "/callback",
+    createCallbackHandler({
+      clientId,
+      clientSecret,
+      redirectUri: REDIRECT_URI,
+      tokenEnvKey,
+      successHtml: isDale
+        ? `<h1>Success</h1><p>Dale's access token saved as DALE_TOKEN.</p><p>Run <code>npm run fetch -- --user dale</code> for <code>data/dale.json</code>.</p>`
+        : `<h1>Success!</h1><p>Access token saved to .env as OURA_TOKEN.</p><p>You can close this tab.</p>`,
+    })
+  );
 
   const authUrl = new URL("https://cloud.ouraring.com/oauth/authorize");
   authUrl.searchParams.set("response_type", "code");
   authUrl.searchParams.set("client_id", clientId);
   authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
   authUrl.searchParams.set("scope", SCOPES);
+  /* Ask IdP to show consent again instead of silently re-approving a cached session. */
+  authUrl.searchParams.set("prompt", "consent");
 
-  server = app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
-    console.log("Opening browser to Oura authorization...");
+  server = app.listen(PORT, () => {
+    console.log(`OAuth callback: ${REDIRECT_URI}`);
+    console.log("Opening browser (new authorization — existing token in .env is not used)...");
     open(authUrl.toString());
-    console.log("\n1. Authorize the app in the browser");
-    console.log("2. You will be redirected back here");
-    console.log("3. Token will be saved to .env as OURA_TOKEN\n");
+    if (isDale) {
+      console.log("\nDale: sign in with his Oura account. Token → DALE_TOKEN\n");
+    } else {
+      console.log("\nAuthorize the app. Token → OURA_TOKEN\n");
+    }
   });
 }
 

@@ -1,0 +1,1618 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-23T21:54:19.709Z",
+    "primaryLabel": "you",
+    "partnerLabel": "dale",
+    "overlappingNights": 100,
+    "notes": [
+      "phaseConcordance: fraction of 5-min buckets in clock overlap where sleep_phase_5_min matches (1=deep,2=light,3=REM,4=awake).",
+      "restfulness*: from daily_readiness.contributors.restfulness (Oura 0–100 style). Re-fetch daily.json and dale.json after fetch.js adds these fields."
+    ]
+  },
+  "aggregate": {
+    "meanPhaseConcordance": 0.4694518267229511,
+    "meanRestfulnessCombined": null
+  },
+  "nights": [
+    {
+      "date": "2025-10-28",
+      "phaseConcordance": 0.375,
+      "segmentConcordance": [
+        0.35,
+        0.5,
+        0.25,
+        0.5,
+        0.35
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-10-27T22:52:30.000-07:00",
+      "bedtimeStartDale": "2025-10-27T23:01:59.000-07:00"
+    },
+    {
+      "date": "2025-10-29",
+      "phaseConcordance": 0.40404040404040403,
+      "segmentConcordance": [
+        0.5,
+        0.5,
+        0.55,
+        0.35,
+        0.25
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-10-28T22:40:31.000-07:00",
+      "bedtimeStartDale": "2025-10-28T23:21:29.000-07:00"
+    },
+    {
+      "date": "2025-10-30",
+      "phaseConcordance": 0.5728155339805825,
+      "segmentConcordance": [
+        0.8571428571428571,
+        0.3333333333333333,
+        0.6666666666666666,
+        0.5714285714285714,
+        0.5714285714285714
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-10-29T23:10:58.000-07:00",
+      "bedtimeStartDale": "2025-10-29T23:14:58.000-07:00"
+    },
+    {
+      "date": "2025-10-31",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": null,
+      "bedtimeStartDale": "2025-10-31T00:17:59.000-07:00"
+    },
+    {
+      "date": "2025-11-03",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-03T00:24:59.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2025-11-04",
+      "phaseConcordance": 0.6774193548387096,
+      "segmentConcordance": [
+        0.5789473684210527,
+        0.5263157894736842,
+        0.7368421052631579,
+        0.7368421052631579,
+        0.7894736842105263
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-03T22:58:30.000-08:00",
+      "bedtimeStartDale": "2025-11-03T22:58:29.000-08:00"
+    },
+    {
+      "date": "2025-11-05",
+      "phaseConcordance": 0.44565217391304346,
+      "segmentConcordance": [
+        0.5263157894736842,
+        0.3684210526315789,
+        0.5263157894736842,
+        0.47368421052631576,
+        0.42105263157894735
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-04T23:39:30.000-08:00",
+      "bedtimeStartDale": "2025-11-04T23:54:58.000-08:00"
+    },
+    {
+      "date": "2025-11-06",
+      "phaseConcordance": 0.5227272727272727,
+      "segmentConcordance": [
+        0.6111111111111112,
+        0.3333333333333333,
+        0.5,
+        0.5555555555555556,
+        0.5555555555555556
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-05T23:38:02.000-08:00",
+      "bedtimeStartDale": "2025-11-05T23:38:29.000-08:00"
+    },
+    {
+      "date": "2025-11-07",
+      "phaseConcordance": 0.4473684210526316,
+      "segmentConcordance": [
+        0.625,
+        0.625,
+        0.5,
+        0.25,
+        0.25
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-07T00:01:33.000-08:00",
+      "bedtimeStartDale": "2025-11-07T00:05:28.000-08:00"
+    },
+    {
+      "date": "2025-11-08",
+      "phaseConcordance": 0.5391304347826087,
+      "segmentConcordance": [
+        0.6666666666666666,
+        0.25,
+        0.4166666666666667,
+        0.7083333333333334,
+        0.6956521739130435
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-07T22:56:27.000-08:00",
+      "bedtimeStartDale": "2025-11-07T23:01:31.000-08:00"
+    },
+    {
+      "date": "2025-11-09",
+      "phaseConcordance": 0.4803921568627451,
+      "segmentConcordance": [
+        0.6666666666666666,
+        0.5714285714285714,
+        0.5714285714285714,
+        0.19047619047619047,
+        0.38095238095238093
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-09T00:46:01.000-08:00",
+      "bedtimeStartDale": "2025-11-09T00:47:58.000-08:00"
+    },
+    {
+      "date": "2025-11-10",
+      "phaseConcordance": 0.28846153846153844,
+      "segmentConcordance": [
+        0.18181818181818182,
+        0.09090909090909091,
+        0.36363636363636365,
+        0,
+        0.7272727272727273
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-10T02:22:28.000-08:00",
+      "bedtimeStartDale": "2025-11-09T23:42:29.000-08:00"
+    },
+    {
+      "date": "2025-11-11",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-10T23:30:00.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2025-11-12",
+      "phaseConcordance": 0.38636363636363635,
+      "segmentConcordance": [
+        0.4444444444444444,
+        0,
+        0.8888888888888888,
+        0.4444444444444444,
+        0.3333333333333333
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-12T03:44:01.000-08:00",
+      "bedtimeStartDale": "2025-11-12T00:24:29.000-08:00"
+    },
+    {
+      "date": "2025-11-13",
+      "phaseConcordance": 0.4787234042553192,
+      "segmentConcordance": [
+        0.631578947368421,
+        0.2631578947368421,
+        0.47368421052631576,
+        0.42105263157894735,
+        0.6842105263157895
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-12T23:06:31.000-08:00",
+      "bedtimeStartDale": "2025-11-12T23:09:29.000-08:00"
+    },
+    {
+      "date": "2025-11-14",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": null,
+      "bedtimeStartDale": "2025-11-13T23:39:02.000-08:00"
+    },
+    {
+      "date": "2025-11-15",
+      "phaseConcordance": 0.4675324675324675,
+      "segmentConcordance": [
+        0.3125,
+        0.375,
+        0.6875,
+        0.4375,
+        0.6875
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-14T23:18:59.000-08:00",
+      "bedtimeStartDale": "2025-11-15T01:32:30.000-08:00"
+    },
+    {
+      "date": "2025-11-16",
+      "phaseConcordance": 0.504950495049505,
+      "segmentConcordance": [
+        0.5238095238095238,
+        0.6190476190476191,
+        0.7142857142857143,
+        0.3333333333333333,
+        0.38095238095238093
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-15T22:10:28.000-08:00",
+      "bedtimeStartDale": "2025-11-15T23:27:02.000-08:00"
+    },
+    {
+      "date": "2025-11-17",
+      "phaseConcordance": 0.5434782608695652,
+      "segmentConcordance": [
+        0.8947368421052632,
+        0.21052631578947367,
+        0.631578947368421,
+        0.5789473684210527,
+        0.5263157894736842
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-16T23:38:28.000-08:00",
+      "bedtimeStartDale": "2025-11-16T23:33:29.000-08:00"
+    },
+    {
+      "date": "2025-11-18",
+      "phaseConcordance": 0.4854368932038835,
+      "segmentConcordance": [
+        0.5714285714285714,
+        0.5714285714285714,
+        0.47619047619047616,
+        0.2857142857142857,
+        0.5238095238095238
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-17T22:31:03.000-08:00",
+      "bedtimeStartDale": "2025-11-17T22:38:01.000-08:00"
+    },
+    {
+      "date": "2025-11-23",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-23T00:37:30.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2025-11-24",
+      "phaseConcordance": 0.2545454545454545,
+      "segmentConcordance": [
+        0.09090909090909091,
+        0.45454545454545453,
+        0.36363636363636365,
+        0.2727272727272727,
+        0.2727272727272727
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-24T03:38:57.000-08:00",
+      "bedtimeStartDale": "2025-11-24T00:39:57.000-08:00"
+    },
+    {
+      "date": "2025-11-25",
+      "phaseConcordance": 0.4166666666666667,
+      "segmentConcordance": [
+        0.08333333333333333,
+        0.4166666666666667,
+        0.3333333333333333,
+        0.75,
+        0.6666666666666666
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-25T02:09:29.000-08:00",
+      "bedtimeStartDale": "2025-11-24T22:34:58.000-08:00"
+    },
+    {
+      "date": "2025-11-26",
+      "phaseConcordance": 0.3958333333333333,
+      "segmentConcordance": [
+        0.3,
+        0.1,
+        0.4,
+        0.6,
+        0.6
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-26T03:36:30.000-08:00",
+      "bedtimeStartDale": "2025-11-26T01:21:29.000-08:00"
+    },
+    {
+      "date": "2025-11-27",
+      "phaseConcordance": 0.32432432432432434,
+      "segmentConcordance": [
+        0.13333333333333333,
+        0.13333333333333333,
+        0.3333333333333333,
+        0.6,
+        0.3333333333333333
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-27T02:32:58.000-08:00",
+      "bedtimeStartDale": "2025-11-27T01:40:59.000-08:00"
+    },
+    {
+      "date": "2025-11-28",
+      "phaseConcordance": 0.35294117647058826,
+      "segmentConcordance": [
+        0.35714285714285715,
+        0.2857142857142857,
+        0.5714285714285714,
+        0.2857142857142857,
+        0.42857142857142855
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-28T02:50:58.000-08:00",
+      "bedtimeStartDale": "2025-11-28T01:04:01.000-08:00"
+    },
+    {
+      "date": "2025-11-29",
+      "phaseConcordance": 0.3469387755102041,
+      "segmentConcordance": [
+        0,
+        0.3,
+        0.3,
+        0.7,
+        0.4
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-29T04:27:59.000-08:00",
+      "bedtimeStartDale": "2025-11-28T23:13:01.000-08:00"
+    },
+    {
+      "date": "2025-11-30",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": null,
+      "bedtimeStartDale": "2025-11-29T23:25:59.000-08:00"
+    },
+    {
+      "date": "2025-12-01",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-11-30T23:04:30.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2025-12-02",
+      "phaseConcordance": 0.44155844155844154,
+      "segmentConcordance": [
+        0.75,
+        0.4375,
+        0.3125,
+        0.3125,
+        0.3125
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-02T00:26:30.000-08:00",
+      "bedtimeStartDale": "2025-12-02T00:41:32.000-08:00"
+    },
+    {
+      "date": "2025-12-03",
+      "phaseConcordance": 0.2391304347826087,
+      "segmentConcordance": [
+        0.05263157894736842,
+        0.3684210526315789,
+        0.21052631578947367,
+        0.10526315789473684,
+        0.47368421052631576
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-02T23:41:30.000-08:00",
+      "bedtimeStartDale": "2025-12-02T22:26:32.000-08:00"
+    },
+    {
+      "date": "2025-12-04",
+      "phaseConcordance": 0.5795454545454546,
+      "segmentConcordance": [
+        0.8333333333333334,
+        0.6111111111111112,
+        0.6111111111111112,
+        0.5,
+        0.2222222222222222
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-04T00:20:59.000-08:00",
+      "bedtimeStartDale": "2025-12-04T00:27:32.000-08:00"
+    },
+    {
+      "date": "2025-12-05",
+      "phaseConcordance": 0.39285714285714285,
+      "segmentConcordance": [
+        0.6086956521739131,
+        0.391304347826087,
+        0.4782608695652174,
+        0.34782608695652173,
+        0.21739130434782608
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-04T22:14:00.000-08:00",
+      "bedtimeStartDale": "2025-12-04T22:15:58.000-08:00"
+    },
+    {
+      "date": "2025-12-06",
+      "phaseConcordance": 0.44871794871794873,
+      "segmentConcordance": [
+        0.625,
+        0.4375,
+        0.125,
+        0.375,
+        0.6875
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-06T02:02:31.000-08:00",
+      "bedtimeStartDale": "2025-12-06T02:02:31.000-08:00"
+    },
+    {
+      "date": "2025-12-07",
+      "phaseConcordance": 0.5405405405405406,
+      "segmentConcordance": [
+        0.43478260869565216,
+        0.5652173913043478,
+        0.391304347826087,
+        0.5217391304347826,
+        0.6956521739130435
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-06T23:12:00.000-08:00",
+      "bedtimeStartDale": "2025-12-06T23:13:31.000-08:00"
+    },
+    {
+      "date": "2025-12-08",
+      "phaseConcordance": 0.5145631067961165,
+      "segmentConcordance": [
+        0.47619047619047616,
+        0.38095238095238093,
+        0.5714285714285714,
+        0.6666666666666666,
+        0.47619047619047616
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-07T22:28:00.000-08:00",
+      "bedtimeStartDale": "2025-12-07T22:38:31.000-08:00"
+    },
+    {
+      "date": "2025-12-09",
+      "phaseConcordance": 0.5585585585585585,
+      "segmentConcordance": [
+        0.43478260869565216,
+        0.6521739130434783,
+        0.6956521739130435,
+        0.5652173913043478,
+        0.391304347826087
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-08T21:52:01.000-08:00",
+      "bedtimeStartDale": "2025-12-08T21:48:31.000-08:00"
+    },
+    {
+      "date": "2025-12-10",
+      "phaseConcordance": 0.47368421052631576,
+      "segmentConcordance": [
+        0.7894736842105263,
+        0.3684210526315789,
+        0.21052631578947367,
+        0.3684210526315789,
+        0.47368421052631576
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-09T23:26:00.000-08:00",
+      "bedtimeStartDale": "2025-12-09T23:25:01.000-08:00"
+    },
+    {
+      "date": "2025-12-11",
+      "phaseConcordance": 0.34545454545454546,
+      "segmentConcordance": [
+        0.6818181818181818,
+        0.4090909090909091,
+        0.3181818181818182,
+        0.18181818181818182,
+        0.2727272727272727
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-10T22:25:57.000-08:00",
+      "bedtimeStartDale": "2025-12-10T22:28:59.000-08:00"
+    },
+    {
+      "date": "2025-12-12",
+      "phaseConcordance": 0.4270833333333333,
+      "segmentConcordance": [
+        0.55,
+        0.55,
+        0.4,
+        0.3,
+        0.3
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-11T22:57:29.000-08:00",
+      "bedtimeStartDale": "2025-12-11T23:00:58.000-08:00"
+    },
+    {
+      "date": "2025-12-13",
+      "phaseConcordance": 0.5671641791044776,
+      "segmentConcordance": [
+        0.42857142857142855,
+        0.8571428571428571,
+        0.35714285714285715,
+        0.35714285714285715,
+        0.7142857142857143
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-13T02:22:00.000-08:00",
+      "bedtimeStartDale": "2025-12-13T02:18:58.000-08:00"
+    },
+    {
+      "date": "2025-12-14",
+      "phaseConcordance": 0.4657534246575342,
+      "segmentConcordance": [
+        0.8,
+        0.4,
+        0.2,
+        0.5333333333333333,
+        0.3333333333333333
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-14T02:02:29.000-08:00",
+      "bedtimeStartDale": "2025-12-14T02:04:01.000-08:00"
+    },
+    {
+      "date": "2025-12-15",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-14T23:32:30.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2025-12-17",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-16T22:52:30.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2025-12-18",
+      "phaseConcordance": 0.42696629213483145,
+      "segmentConcordance": [
+        0.7222222222222222,
+        0.4444444444444444,
+        0.16666666666666666,
+        0.4444444444444444,
+        0.2777777777777778
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-18T00:02:31.000-08:00",
+      "bedtimeStartDale": "2025-12-18T00:05:30.000-08:00"
+    },
+    {
+      "date": "2025-12-19",
+      "phaseConcordance": 0.6153846153846154,
+      "segmentConcordance": [
+        0.631578947368421,
+        0.5789473684210527,
+        0.6842105263157895,
+        0.5789473684210527,
+        0.47368421052631576
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-18T23:43:58.000-08:00",
+      "bedtimeStartDale": "2025-12-18T23:44:01.000-08:00"
+    },
+    {
+      "date": "2025-12-20",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": null,
+      "bedtimeStartDale": "2025-12-19T23:25:01.000-08:00"
+    },
+    {
+      "date": "2025-12-21",
+      "phaseConcordance": 0.27472527472527475,
+      "segmentConcordance": [
+        0.21052631578947367,
+        0.42105263157894735,
+        0.2631578947368421,
+        0.15789473684210525,
+        0.3157894736842105
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-21T00:23:58.000-08:00",
+      "bedtimeStartDale": "2025-12-20T23:00:29.000-08:00"
+    },
+    {
+      "date": "2025-12-22",
+      "phaseConcordance": 0.40425531914893614,
+      "segmentConcordance": [
+        0.5,
+        0.5,
+        0.4,
+        0.4,
+        0.2
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-22T03:31:59.000-08:00",
+      "bedtimeStartDale": "2025-12-21T22:44:57.000-08:00"
+    },
+    {
+      "date": "2025-12-23",
+      "phaseConcordance": 0.35,
+      "segmentConcordance": [
+        0,
+        0.6666666666666666,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.3333333333333333
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-23T03:03:31.000-08:00",
+      "bedtimeStartDale": "2025-12-22T23:47:27.000-08:00"
+    },
+    {
+      "date": "2025-12-24",
+      "phaseConcordance": 0.3627450980392157,
+      "segmentConcordance": [
+        0.42857142857142855,
+        0.42857142857142855,
+        0.42857142857142855,
+        0.38095238095238093,
+        0.23809523809523808
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-24T01:42:32.000-08:00",
+      "bedtimeStartDale": "2025-12-24T01:29:32.000-08:00"
+    },
+    {
+      "date": "2025-12-25",
+      "phaseConcordance": 0.2857142857142857,
+      "segmentConcordance": [
+        0.14285714285714285,
+        0.2857142857142857,
+        0.2857142857142857,
+        0.42857142857142855,
+        0.14285714285714285
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-25T02:35:58.000-08:00",
+      "bedtimeStartDale": "2025-12-25T01:43:00.000-08:00"
+    },
+    {
+      "date": "2025-12-26",
+      "phaseConcordance": 0.43478260869565216,
+      "segmentConcordance": [
+        0.3157894736842105,
+        0.2631578947368421,
+        0.42105263157894735,
+        0.3157894736842105,
+        0.6842105263157895
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-26T01:56:30.000-08:00",
+      "bedtimeStartDale": "2025-12-25T23:53:30.000-08:00"
+    },
+    {
+      "date": "2025-12-27",
+      "phaseConcordance": 0.46,
+      "segmentConcordance": [
+        0.4,
+        0.7,
+        0.2,
+        0.5,
+        0.4
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-26T23:55:31.000-08:00",
+      "bedtimeStartDale": "2025-12-27T01:47:59.000-08:00"
+    },
+    {
+      "date": "2025-12-28",
+      "phaseConcordance": 0.6,
+      "segmentConcordance": [
+        0.6111111111111112,
+        0.6666666666666666,
+        0.7222222222222222,
+        0.4444444444444444,
+        0.5882352941176471
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-27T23:24:58.000-08:00",
+      "bedtimeStartDale": "2025-12-28T00:46:01.000-08:00"
+    },
+    {
+      "date": "2025-12-29",
+      "phaseConcordance": 0.4696969696969697,
+      "segmentConcordance": [
+        0.42857142857142855,
+        0.21428571428571427,
+        0.5,
+        0.5,
+        0.7142857142857143
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-29T00:13:31.000-08:00",
+      "bedtimeStartDale": "2025-12-29T00:18:59.000-08:00"
+    },
+    {
+      "date": "2025-12-30",
+      "phaseConcordance": 0.6021505376344086,
+      "segmentConcordance": [
+        0.5789473684210527,
+        0.47368421052631576,
+        0.3684210526315789,
+        0.631578947368421,
+        0.8421052631578947
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-29T22:49:31.000-10:00",
+      "bedtimeStartDale": "2025-12-29T23:02:59.000-10:00"
+    },
+    {
+      "date": "2025-12-31",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2025-12-30T21:30:01.000-10:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2026-01-01",
+      "phaseConcordance": 0.4090909090909091,
+      "segmentConcordance": [
+        0.5,
+        0.2777777777777778,
+        0.3888888888888889,
+        0.5,
+        0.4444444444444444
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-01T00:23:31.000-10:00",
+      "bedtimeStartDale": "2026-01-01T00:48:59.000-10:00"
+    },
+    {
+      "date": "2026-01-02",
+      "phaseConcordance": 0.4056603773584906,
+      "segmentConcordance": [
+        0.5,
+        0.3181818181818182,
+        0.36363636363636365,
+        0.4090909090909091,
+        0.45454545454545453
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-01T22:05:58.000-10:00",
+      "bedtimeStartDale": "2026-01-01T22:05:30.000-10:00"
+    },
+    {
+      "date": "2026-01-03",
+      "phaseConcordance": 0.4444444444444444,
+      "segmentConcordance": [
+        0.5,
+        0.55,
+        0.7,
+        0.25,
+        0.25
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-02T22:34:57.000-10:00",
+      "bedtimeStartDale": "2026-01-02T22:46:29.000-10:00"
+    },
+    {
+      "date": "2026-01-04",
+      "phaseConcordance": 0.6612903225806451,
+      "segmentConcordance": [
+        0.8461538461538461,
+        0.6153846153846154,
+        0.9230769230769231,
+        0.9230769230769231,
+        0.3076923076923077
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-04T04:37:58.000-08:00",
+      "bedtimeStartDale": "2026-01-04T04:41:00.000-08:00"
+    },
+    {
+      "date": "2026-01-05",
+      "phaseConcordance": 0.4954954954954955,
+      "segmentConcordance": [
+        0.6521739130434783,
+        0.43478260869565216,
+        0.391304347826087,
+        0.5217391304347826,
+        0.4782608695652174
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-04T22:38:59.000-08:00",
+      "bedtimeStartDale": "2026-01-04T22:36:00.000-08:00"
+    },
+    {
+      "date": "2026-01-06",
+      "phaseConcordance": 0.58,
+      "segmentConcordance": [
+        0.75,
+        0.35,
+        0.5,
+        0.55,
+        0.5
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-05T23:13:28.000-08:00",
+      "bedtimeStartDale": "2026-01-05T23:16:00.000-08:00"
+    },
+    {
+      "date": "2026-01-07",
+      "phaseConcordance": 0.4752475247524752,
+      "segmentConcordance": [
+        0.38095238095238093,
+        0.42857142857142855,
+        0.42857142857142855,
+        0.6190476190476191,
+        0.42857142857142855
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-06T22:24:30.000-08:00",
+      "bedtimeStartDale": "2026-01-06T23:09:28.000-08:00"
+    },
+    {
+      "date": "2026-01-08",
+      "phaseConcordance": 0.6632653061224489,
+      "segmentConcordance": [
+        0.4,
+        0.7,
+        0.75,
+        0.95,
+        0.65
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-07T23:17:56.000-08:00",
+      "bedtimeStartDale": "2026-01-07T23:22:29.000-08:00"
+    },
+    {
+      "date": "2026-01-09",
+      "phaseConcordance": 0.42857142857142855,
+      "segmentConcordance": [
+        0.5384615384615384,
+        0.5769230769230769,
+        0.5,
+        0.11538461538461539,
+        0.38461538461538464
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-08T21:55:27.000-08:00",
+      "bedtimeStartDale": "2026-01-08T21:56:29.000-08:00"
+    },
+    {
+      "date": "2026-01-10",
+      "phaseConcordance": 0.5818181818181818,
+      "segmentConcordance": [
+        0.6818181818181818,
+        0.36363636363636365,
+        0.6818181818181818,
+        0.7272727272727273,
+        0.5
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-09T23:34:27.000-08:00",
+      "bedtimeStartDale": "2026-01-09T23:33:58.000-08:00"
+    },
+    {
+      "date": "2026-01-11",
+      "phaseConcordance": 0.46846846846846846,
+      "segmentConcordance": [
+        0.5217391304347826,
+        0.2608695652173913,
+        0.4782608695652174,
+        0.6086956521739131,
+        0.5217391304347826
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-10T23:46:27.000-08:00",
+      "bedtimeStartDale": "2026-01-10T23:47:00.000-08:00"
+    },
+    {
+      "date": "2026-01-12",
+      "phaseConcordance": 0.4380952380952381,
+      "segmentConcordance": [
+        0.47619047619047616,
+        0.5238095238095238,
+        0.42857142857142855,
+        0.38095238095238093,
+        0.38095238095238093
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-11T23:15:03.000-08:00",
+      "bedtimeStartDale": "2026-01-11T23:16:02.000-08:00"
+    },
+    {
+      "date": "2026-01-13",
+      "phaseConcordance": 0.4791666666666667,
+      "segmentConcordance": [
+        0.75,
+        0.35,
+        0.4,
+        0.55,
+        0.35
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-12T23:31:30.000-08:00",
+      "bedtimeStartDale": "2026-01-12T23:34:01.000-08:00"
+    },
+    {
+      "date": "2026-01-14",
+      "phaseConcordance": 0.45348837209302323,
+      "segmentConcordance": [
+        0.6666666666666666,
+        0.3888888888888889,
+        0.3888888888888889,
+        0.2222222222222222,
+        0.5555555555555556
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-14T00:11:31.000-08:00",
+      "bedtimeStartDale": "2026-01-14T00:14:32.000-08:00"
+    },
+    {
+      "date": "2026-01-15",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": null,
+      "bedtimeStartDale": "2026-01-14T23:00:59.000-08:00"
+    },
+    {
+      "date": "2026-01-16",
+      "phaseConcordance": 0.4673913043478261,
+      "segmentConcordance": [
+        0.5263157894736842,
+        0.42105263157894735,
+        0.5789473684210527,
+        0.42105263157894735,
+        0.3157894736842105
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-16T00:25:29.000-08:00",
+      "bedtimeStartDale": "2026-01-16T00:25:28.000-08:00"
+    },
+    {
+      "date": "2026-01-17",
+      "phaseConcordance": 0.3404255319148936,
+      "segmentConcordance": [
+        0.5789473684210527,
+        0.3157894736842105,
+        0.42105263157894735,
+        0.21052631578947367,
+        0.15789473684210525
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-16T23:13:31.000-08:00",
+      "bedtimeStartDale": "2026-01-16T23:17:35.000-08:00"
+    },
+    {
+      "date": "2026-01-18",
+      "phaseConcordance": 0.5470085470085471,
+      "segmentConcordance": [
+        0.375,
+        0.6666666666666666,
+        0.5416666666666666,
+        0.7916666666666666,
+        0.5416666666666666
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-17T23:18:32.000-08:00",
+      "bedtimeStartDale": "2026-01-17T23:23:28.000-08:00"
+    },
+    {
+      "date": "2026-01-19",
+      "phaseConcordance": 0.4936708860759494,
+      "segmentConcordance": [
+        0.75,
+        0.4375,
+        0.1875,
+        0.6875,
+        0.5
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-19T02:22:59.000-08:00",
+      "bedtimeStartDale": "2026-01-19T02:23:31.000-08:00"
+    },
+    {
+      "date": "2026-01-20",
+      "phaseConcordance": 0.49038461538461536,
+      "segmentConcordance": [
+        0.5238095238095238,
+        0.38095238095238093,
+        0.5714285714285714,
+        0.42857142857142855,
+        0.2857142857142857
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-19T22:49:00.000-08:00",
+      "bedtimeStartDale": "2026-01-19T22:51:31.000-08:00"
+    },
+    {
+      "date": "2026-01-21",
+      "phaseConcordance": 0.5648148148148148,
+      "segmentConcordance": [
+        0.5454545454545454,
+        0.4090909090909091,
+        0.4090909090909091,
+        0.7727272727272727,
+        0.6363636363636364
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-20T23:00:01.000-08:00",
+      "bedtimeStartDale": "2026-01-20T23:10:01.000-08:00"
+    },
+    {
+      "date": "2026-01-22",
+      "phaseConcordance": 0.49514563106796117,
+      "segmentConcordance": [
+        0.5238095238095238,
+        0.5714285714285714,
+        0.38095238095238093,
+        0.23809523809523808,
+        0.7619047619047619
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-21T23:22:03.000-08:00",
+      "bedtimeStartDale": "2026-01-21T23:32:28.000-08:00"
+    },
+    {
+      "date": "2026-01-23",
+      "phaseConcordance": 0.46601941747572817,
+      "segmentConcordance": [
+        0.6666666666666666,
+        0.3333333333333333,
+        0.5714285714285714,
+        0.2857142857142857,
+        0.38095238095238093
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-22T23:02:28.000-08:00",
+      "bedtimeStartDale": "2026-01-22T23:32:58.000-08:00"
+    },
+    {
+      "date": "2026-01-24",
+      "phaseConcordance": 0.5333333333333333,
+      "segmentConcordance": [
+        0.5714285714285714,
+        0.9523809523809523,
+        0.38095238095238093,
+        0.3333333333333333,
+        0.47619047619047616
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-23T22:50:58.000-08:00",
+      "bedtimeStartDale": "2026-01-23T23:55:59.000-08:00"
+    },
+    {
+      "date": "2026-01-25",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": null,
+      "bedtimeStartDale": "2026-01-24T23:27:28.000-08:00"
+    },
+    {
+      "date": "2026-01-26",
+      "phaseConcordance": 0.5463917525773195,
+      "segmentConcordance": [
+        0.65,
+        0.35,
+        0.55,
+        0.55,
+        0.7
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-26T00:00:28.000-08:00",
+      "bedtimeStartDale": "2026-01-26T00:02:00.000-08:00"
+    },
+    {
+      "date": "2026-01-27",
+      "phaseConcordance": 0.4725274725274725,
+      "segmentConcordance": [
+        0.5789473684210527,
+        0.42105263157894735,
+        0.5263157894736842,
+        0.3684210526315789,
+        0.47368421052631576
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-26T23:48:58.000-08:00",
+      "bedtimeStartDale": "2026-01-26T23:52:59.000-08:00"
+    },
+    {
+      "date": "2026-01-28",
+      "phaseConcordance": 0.5636363636363636,
+      "segmentConcordance": [
+        0.45454545454545453,
+        0.5454545454545454,
+        0.5,
+        0.5,
+        0.5909090909090909
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-27T22:16:32.000-08:00",
+      "bedtimeStartDale": "2026-01-27T22:29:02.000-08:00"
+    },
+    {
+      "date": "2026-01-29",
+      "phaseConcordance": 0.574468085106383,
+      "segmentConcordance": [
+        0.6842105263157895,
+        0.42105263157894735,
+        0.3684210526315789,
+        0.8421052631578947,
+        0.631578947368421
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-28T23:53:59.000-08:00",
+      "bedtimeStartDale": "2026-01-28T23:54:03.000-08:00"
+    },
+    {
+      "date": "2026-01-30",
+      "phaseConcordance": 0.4158415841584158,
+      "segmentConcordance": [
+        0.47619047619047616,
+        0.3333333333333333,
+        0.38095238095238093,
+        0.47619047619047616,
+        0.38095238095238093
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-29T23:05:28.000-08:00",
+      "bedtimeStartDale": "2026-01-29T23:15:29.000-08:00"
+    },
+    {
+      "date": "2026-01-31",
+      "phaseConcordance": 0.4583333333333333,
+      "segmentConcordance": [
+        0.6,
+        0.8,
+        0.25,
+        0.15,
+        0.4
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-01-30T23:39:58.000-08:00",
+      "bedtimeStartDale": "2026-01-30T23:46:30.000-08:00"
+    },
+    {
+      "date": "2026-02-01",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-01T00:12:31.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2026-02-02",
+      "phaseConcordance": 0.4835164835164835,
+      "segmentConcordance": [
+        0.631578947368421,
+        0.3684210526315789,
+        0.5789473684210527,
+        0.3684210526315789,
+        0.47368421052631576
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-02T00:16:58.000-08:00",
+      "bedtimeStartDale": "2026-02-02T00:17:00.000-08:00"
+    },
+    {
+      "date": "2026-02-03",
+      "phaseConcordance": 0.5227272727272727,
+      "segmentConcordance": [
+        0.8888888888888888,
+        0.5555555555555556,
+        0.2222222222222222,
+        0.5555555555555556,
+        0.5555555555555556
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-02T23:36:28.000-08:00",
+      "bedtimeStartDale": "2026-02-02T23:37:02.000-08:00"
+    },
+    {
+      "date": "2026-02-04",
+      "phaseConcordance": 0.5047619047619047,
+      "segmentConcordance": [
+        0.5714285714285714,
+        0.14285714285714285,
+        0.38095238095238093,
+        0.7619047619047619,
+        0.6190476190476191
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-03T22:29:00.000-08:00",
+      "bedtimeStartDale": "2026-02-03T22:29:30.000-08:00"
+    },
+    {
+      "date": "2026-02-05",
+      "phaseConcordance": 0.4215686274509804,
+      "segmentConcordance": [
+        0.5714285714285714,
+        0.3333333333333333,
+        0.6666666666666666,
+        0.2857142857142857,
+        0.14285714285714285
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-04T22:50:28.000-08:00",
+      "bedtimeStartDale": "2026-02-04T22:46:30.000-08:00"
+    },
+    {
+      "date": "2026-02-06",
+      "phaseConcordance": 0.49,
+      "segmentConcordance": [
+        0.45,
+        0.1,
+        0.55,
+        0.45,
+        0.65
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-05T23:42:02.000-08:00",
+      "bedtimeStartDale": "2026-02-05T23:47:58.000-08:00"
+    },
+    {
+      "date": "2026-02-07",
+      "phaseConcordance": 0.47191011235955055,
+      "segmentConcordance": [
+        0.8333333333333334,
+        0.3333333333333333,
+        0.5,
+        0.4444444444444444,
+        0.2777777777777778
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-07T03:40:58.000-08:00",
+      "bedtimeStartDale": "2026-02-07T03:52:01.000-08:00"
+    },
+    {
+      "date": "2026-02-08",
+      "phaseConcordance": 0.5818181818181818,
+      "segmentConcordance": [
+        0.9090909090909091,
+        0.45454545454545453,
+        0.5,
+        0.5,
+        0.5909090909090909
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-07T23:04:29.000-08:00",
+      "bedtimeStartDale": "2026-02-07T23:04:59.000-08:00"
+    },
+    {
+      "date": "2026-02-10",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-09T23:05:58.000-08:00",
+      "bedtimeStartDale": null
+    },
+    {
+      "date": "2026-02-11",
+      "phaseConcordance": 0.5523809523809524,
+      "segmentConcordance": [
+        0.47619047619047616,
+        0.47619047619047616,
+        0.5714285714285714,
+        0.6666666666666666,
+        0.47619047619047616
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": "2026-02-10T23:07:59.000-08:00",
+      "bedtimeStartDale": "2026-02-10T23:09:00.000-08:00"
+    },
+    {
+      "date": "2026-02-12",
+      "phaseConcordance": null,
+      "segmentConcordance": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "restfulnessYou": null,
+      "restfulnessDale": null,
+      "restfulnessCombined": null,
+      "bedtimeStartYou": null,
+      "bedtimeStartDale": null
+    }
+  ]
+}

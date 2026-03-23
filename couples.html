@@ -11,30 +11,112 @@
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 32px;
+      padding: 32px 20px 56px;
       font-family: "DM Sans", system-ui, -apple-system, sans-serif;
       font-size: 14px;
       color: #1a1a1a;
       background: #fcfcfc;
-      max-width: 640px;
+    }
+    .page-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 8px 0 6px;
+      text-align: center;
+    }
+    .lede {
+      margin: 0 auto 20px;
+      max-width: 680px;
+      text-align: center;
+      color: #555;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+    .lede code { font-size: 12px; background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+    #bed-grid-wrap {
+      margin: 0 auto;
+      text-align: center;
+    }
+    #bed-grid {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      background: #f5f2eb;
+      box-shadow: 0 8px 36px rgba(0, 0, 0, 0.07);
+      border-radius: 4px;
+    }
+    #bed-grid-cap {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #5c5852;
+      line-height: 1.55;
+      max-width: 760px;
       margin-left: auto;
       margin-right: auto;
     }
-    p { color: #555; line-height: 1.6; }
-    code { font-size: 12px; background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+    .grid-cap-main {
+      margin: 0 0 12px;
+      font-weight: 500;
+      color: #3d3a36;
+    }
+    .bed-legend {
+      text-align: left;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+    .bed-legend p {
+      margin: 0 0 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #4a4742;
+    }
+    .chip {
+      flex: 0 0 14px;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      margin-top: 2px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    }
+    .chip-seam {
+      background: linear-gradient(90deg, #ecd2ca 0%, #207680 100%);
+    }
+    .chip-bars {
+      background: linear-gradient(180deg, #207680 35%, #d4c4bc 35%, #d4c4bc 100%);
+    }
+    .chip-head {
+      background: linear-gradient(90deg, #207680 70%, #ebe6dc 70%);
+    }
+    .chip-wash {
+      background: linear-gradient(135deg, #f4e6e4 0%, #e8f2f0 100%);
+    }
+    .chip-blanket {
+      background: linear-gradient(118deg, #e8e2d6 40%, #d8c8c0 40%, #e8e2d6 100%);
+    }
   </style>
 </head>
 <body data-nav="couples">
-  <nav class="nav" id="site-nav" aria-label="Site"></nav>
-  <script src="site-nav.js"></script>
-  <h1 style="font-size: 1.25rem; font-weight: 600; margin-top: 8px;">Couples Sleep</h1>
-  <p>
-    Placeholder for the v2 panel comparing your sleep with your partner’s
-    (<code>data/daily.json</code> + <code>data/dale.json</code>).
-  </p>
-  <p>
-    After Dale authorizes the separate Oura app, run <code>npm run get-token:dale</code>
-    then <code>npm run fetch:dale</code> to refresh <code>dale.json</code>.
-  </p>
+  <div class="page-inner">
+    <nav class="nav" id="site-nav" aria-label="Site"></nav>
+    <script src="site-nav.js"></script>
+
+    <h1>Couples Sleep</h1>
+    <p class="lede">
+      Fourteen-night grid: each cell is one calendar night with full overlap data (no gaps). Encoding is redundant — curve, weight, color, bar height, headboard band, and cell wash all reflect how aligned and calm the night was. Single-bed preview: <a href="viz/bed.html">viz/bed.html</a>.
+      Data: <code>data/couples.json</code> (serve repo root with <code>npx serve .</code>).
+    </p>
+
+    <figure id="bed-grid-wrap">
+      <canvas id="bed-grid" width="1280" height="400" aria-label="Couples sleep: fourteen-night bed grid"></canvas>
+      <figcaption id="bed-grid-cap">Loading couples data…</figcaption>
+    </figure>
+  </div>
+  <script src="viz/bed-canvas.js"></script>
 </body>
 </html>

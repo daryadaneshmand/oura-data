@@ -6,7 +6,8 @@
     "get-token": "node auth/get_token.js",
     "get-token:dale": "node auth/get_token_dale.js",
     "fetch": "node data/fetch.js",
-    "fetch:dale": "node data/fetch.js dale",
+    "fetch:dale": "node data/fetch.js --user dale",
+    "merge-couples": "node data/merge_couples.js",
     "dev": "npx serve .",
     "preview": "npx serve ."
   },
