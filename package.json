@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "get-token": "node auth/get_token.js",
+    "get-token:dale": "node auth/get_token_dale.js",
     "fetch": "node data/fetch.js",
+    "fetch:dale": "node data/fetch.js dale",
     "dev": "npx serve .",
     "preview": "npx serve ."
   },

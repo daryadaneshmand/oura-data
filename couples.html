@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Couples Sleep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-nav.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: #1a1a1a;
+      background: #fcfcfc;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    p { color: #555; line-height: 1.6; }
+    code { font-size: 12px; background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body data-nav="couples">
+  <nav class="nav" id="site-nav" aria-label="Site"></nav>
+  <script src="site-nav.js"></script>
+  <h1 style="font-size: 1.25rem; font-weight: 600; margin-top: 8px;">Couples Sleep</h1>
+  <p>
+    Placeholder for the v2 panel comparing your sleep with your partner’s
+    (<code>data/daily.json</code> + <code>data/dale.json</code>).
+  </p>
+  <p>
+    After Dale authorizes the separate Oura app, run <code>npm run get-token:dale</code>
+    then <code>npm run fetch:dale</code> to refresh <code>dale.json</code>.
+  </p>
+</body>
+</html>

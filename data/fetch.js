@@ -1,8 +1,12 @@
 /**
  * Oura API fetch layer — build step.
  * Fetches daily_resilience, daily_readiness, workout, daily_activity, sleep
- * for 2025-10-28 to 2026-02-12, merges by date, writes data/daily.json.
- * Run: npm run fetch (requires OURA_TOKEN or OURA_PAT in .env)
+ * for 2025-10-28 to 2026-02-12, merges by date.
+ *
+ * Run: npm run fetch          → data/daily.json (YOUR_TOKEN / OURA_PAT)
+ * Run: npm run fetch:dale     → data/dale.json (DALE_OURA_TOKEN; partner account)
+ *
+ * Partner OAuth app: DALE_CLIENT_ID + DALE_CLIENT_SECRET; obtain token via npm run get-token:dale.
  */
 
 import "dotenv/config";
@@ -26,7 +30,16 @@ const RESILIENCE_LEVEL_MAP = {
  * Validate token by calling personal_info (no date params).
  * Throws if token is invalid or expired.
  */
-function getToken() {
+function getTokenFor(target) {
+  if (target === "dale") {
+    const token = process.env.DALE_OURA_TOKEN || process.env.DALE_OURA_PAT;
+    if (!token) {
+      throw new Error(
+        "DALE_OURA_TOKEN or DALE_OURA_PAT not set. Run npm run get-token:dale (Dale signs in to his Oura app)."
+      );
+    }
+    return token;
+  }
   const token = process.env.OURA_TOKEN || process.env.OURA_PAT;
   if (!token) {
     throw new Error("OURA_TOKEN or OURA_PAT not set. Run npm run get-token first.");
@@ -34,9 +47,7 @@ function getToken() {
   return token;
 }
 
-async function validateToken() {
-  const token = getToken();
-
+async function validateToken(token, label) {
   const res = await fetch(`${BASE_URL}/personal_info`, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -47,15 +58,13 @@ async function validateToken() {
   }
 
   const info = await res.json();
-  console.log("Token valid. Account:", info.email ?? info.id ?? "(see personal_info response)");
+  console.log(`Token valid (${label}). Account:`, info.email ?? info.id ?? "(see personal_info response)");
 }
 
 /**
  * Fetch all pages for an endpoint using next_token pagination.
  */
-async function fetchPaginated(endpoint, params = {}) {
-  const token = getToken();
-
+async function fetchPaginated(token, endpoint, params = {}) {
   const allData = [];
   let nextToken = null;
 
@@ -88,13 +97,13 @@ async function fetchPaginated(endpoint, params = {}) {
 /**
  * Fetch all five endpoints in parallel.
  */
-async function fetchAll() {
+async function fetchAll(token) {
   const [resilience, readiness, workouts, activity, sleep] = await Promise.all([
-    fetchPaginated("daily_resilience"),
-    fetchPaginated("daily_readiness"),
-    fetchPaginated("workout"),
-    fetchPaginated("daily_activity"),
-    fetchPaginated("sleep"),
+    fetchPaginated(token, "daily_resilience"),
+    fetchPaginated(token, "daily_readiness"),
+    fetchPaginated(token, "workout"),
+    fetchPaginated(token, "daily_activity"),
+    fetchPaginated(token, "sleep"),
   ]);
 
   return { resilience, readiness, workouts, activity, sleep };
@@ -219,9 +228,12 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
 }
 
 async function main() {
-  await validateToken();
+  const target = process.argv[2] === "dale" ? "dale" : "me";
+  const token = getTokenFor(target);
+  const label = target === "dale" ? "dale" : "you";
+  await validateToken(token, label);
 
-  const { resilience, readiness, workouts, activity, sleep } = await fetchAll();
+  const { resilience, readiness, workouts, activity, sleep } = await fetchAll(token);
 
   console.log("Raw response counts:", {
     resilience: resilience.length,
@@ -238,7 +250,7 @@ async function main() {
   if (resilience.length === 0 && readiness.length === 0 && activity.length === 0) {
     console.warn("\nAll endpoints returned 0. Running diagnostic: fetching daily_readiness without date params...");
     const diagRes = await fetch(`${BASE_URL}/daily_readiness`, {
-      headers: { Authorization: `Bearer ${getToken()}` },
+      headers: { Authorization: `Bearer ${token}` },
     });
     const diagJson = await diagRes.json();
     const diagData = diagJson.data || [];
@@ -259,10 +271,8 @@ async function main() {
 
   const merged = mergeDailyData({ resilience, readiness, workouts, activity, sleep });
 
-  const outPath = join(
-    dirname(fileURLToPath(import.meta.url)),
-    "daily.json"
-  );
+  const fileName = target === "dale" ? "dale.json" : "daily.json";
+  const outPath = join(dirname(fileURLToPath(import.meta.url)), fileName);
   writeFileSync(outPath, JSON.stringify(merged, null, 2), "utf8");
   console.log(`Wrote ${merged.length} days to ${outPath}`);
 }
