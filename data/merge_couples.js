@@ -150,6 +150,10 @@ function main() {
       restfulnessCombined,
       bedtimeStartYou: y.bedtimeStart ?? null,
       bedtimeStartDale: d.bedtimeStart ?? null,
+      bedtimeEndYou: y.bedtimeEnd ?? null,
+      bedtimeEndDale: d.bedtimeEnd ?? null,
+      sleepPhase5MinYou: y.sleepPhase5Min ?? null,
+      sleepPhase5MinDale: d.sleepPhase5Min ?? null,
     });
   }
 
@@ -164,6 +168,7 @@ function main() {
       overlappingNights: nights.length,
       notes: [
         "phaseConcordance: fraction of 5-min buckets in clock overlap where sleep_phase_5_min matches (1=deep,2=light,3=REM,4=awake).",
+        "sleepPhase5MinYou/Dale: hypnogram strings for viz; bedtimeEnd* for overlap end (else inferred from string length × 5 min).",
         "restfulness*: from daily_readiness.contributors.restfulness (Oura 0–100 style). Re-fetch daily.json and dale.json after fetch.js adds these fields.",
       ],
     },

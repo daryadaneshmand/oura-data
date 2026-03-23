@@ -1,14 +1,28 @@
 /**
- * Couples bed canvas — glyph language for phase concordance + restfulness.
+ * Couples bed canvas — hypnogram strips (clock overlap) + restfulness blanket.
  * - Single bed: #bed + #bed-cap
  * - 2×7 grid: #bed-grid + #bed-grid-cap (14 consecutive calendar nights, complete data only)
  */
 (function () {
   const VB_W = 1280;
   const VB_H = 1024;
+  const MS_5MIN = 5 * 60 * 1000;
 
   const BLANKET_ANCHOR_X = 655;
   const BLANKET_ANCHOR_Y = 468;
+
+  /** Hypnogram strip band on mattress front (below blanket); x = time in overlap window. */
+  const HYPN_LABEL_RIGHT = 308;
+  const HYPN_STRIP_X0 = 318;
+  const HYPN_STRIP_X1 = 1008;
+  const HYPN_Y_TOP = 702;
+
+  const PHASE_COLORS = {
+    1: "#1a3d35",
+    2: "#4a9e8a",
+    3: "#7dd4b8",
+    4: "#e0f5ef",
+  };
 
   const colors = {
     canvasBg: "#f5f2eb",
@@ -16,7 +30,6 @@
     headboardStroke: "#d4cfc4",
     mattress: "#f0ebe3",
     mattressStroke: "#c9c3b8",
-    mattressSeam: "#d8d2c7",
     blanket: "#e8e2d6",
     blanketStroke: "#beb8ad",
     pillow: "#f2ede4",
@@ -38,13 +51,6 @@
   const dPillowRight =
     "M669.93,229.04c8.74,1.18,30,4.36,38.01,8.46s39.07-2.19,44.7-1.65,26.58-4.27,45.96-1.59c19.38,2.67,14.03,10.63,13.55,22.55s-2.56,14.36-.46,25.76,4.07,24.68-9.03,22.27-25.97,4.69-37.89,4.2-66.43-5.29-77.1-5.72-33.67,8.69-26.98-16.81c6.69-25.51,6.82-28.64,4.74-39.42-2.08-10.77-3.61-19.15,4.5-18.05Z";
 
-  const MATTRESS_FRONT_POLY = [
-    [309.04, 839.99],
-    [292.3, 643.99],
-    [1018.14, 644.89],
-    [1000.92, 840.85],
-  ];
-
   function lerp(a, b, u) {
     return a + (b - a) * u;
   }
@@ -55,14 +61,44 @@
     )})`;
   }
 
-  /** Editorial seam: low match = warm unease, high = saturated cool (Fragapane-style clarity). */
-  function seamColorGlyph(c) {
-    const t = c == null ? 0.5 : Math.max(0, Math.min(1, c));
-    const dust = [236, 210, 202];
-    const mid = [198, 186, 178];
-    const teal = [32, 118, 128];
-    if (t < 0.5) return lerpRgb(dust, mid, t * 2);
-    return lerpRgb(mid, teal, (t - 0.5) * 2);
+  function phaseAt(phaseStr, bedtimeStart, tMs) {
+    if (!phaseStr || !bedtimeStart) return null;
+    const t0 = new Date(bedtimeStart).getTime();
+    if (!Number.isFinite(t0)) return null;
+    const idx = Math.floor((tMs - t0) / MS_5MIN);
+    if (idx < 0 || idx >= phaseStr.length) return null;
+    return phaseStr[idx];
+  }
+
+  function inferBedtimeEndMs(bedtimeStart, phaseStr) {
+    const t0 = new Date(bedtimeStart).getTime();
+    if (!Number.isFinite(t0) || !phaseStr || !phaseStr.length) return NaN;
+    return t0 + phaseStr.length * MS_5MIN;
+  }
+
+  function overlapWindow(night) {
+    if (!night) return { ok: false, overlapStart: 0, overlapEnd: 0 };
+    const su = new Date(night.bedtimeStartYou).getTime();
+    const sd = new Date(night.bedtimeStartDale).getTime();
+    let eu = night.bedtimeEndYou
+      ? new Date(night.bedtimeEndYou).getTime()
+      : inferBedtimeEndMs(night.bedtimeStartYou, night.sleepPhase5MinYou);
+    let ed = night.bedtimeEndDale
+      ? new Date(night.bedtimeEndDale).getTime()
+      : inferBedtimeEndMs(night.bedtimeStartDale, night.sleepPhase5MinDale);
+    if (!Number.isFinite(su) || !Number.isFinite(sd)) return { ok: false, overlapStart: 0, overlapEnd: 0 };
+    if (!Number.isFinite(eu)) eu = su;
+    if (!Number.isFinite(ed)) ed = sd;
+    const overlapStart = Math.max(su, sd);
+    const overlapEnd = Math.min(eu, ed);
+    const ok = overlapEnd > overlapStart + MS_5MIN;
+    return { ok, overlapStart, overlapEnd };
+  }
+
+  function phaseBucketColor(ch) {
+    if (ch == null) return "#c8c4be";
+    const k = typeof ch === "string" ? ch : String(ch);
+    return PHASE_COLORS[k] || "#c8c4be";
   }
 
   function nightHarmony(night) {
@@ -83,36 +119,24 @@
     return Math.max(0, Math.min(1, p * 0.55 + r * 0.45));
   }
 
-  /** Wash behind the whole glyph: calmer nights lean cool mint; rough nights lean warm blush. */
+  /** Bold wash: clear warm blush vs cool mint for troubled vs calm nights. */
   function drawCellAtmosphere(ctx, night) {
     const h = nightHarmony(night);
     const troubled = 1 - h;
     const calm = h;
-    const r = lerp(252, 244, calm) + troubled * 4;
-    const g = lerp(238, 236, calm) - troubled * 6;
-    const b = lerp(234, 242, calm);
-    const a = 0.11 + troubled * 0.1;
+    const warmR = lerp(255, 248, calm);
+    const warmG = lerp(218, 235, calm);
+    const warmB = lerp(208, 238, calm);
+    const coolR = lerp(248, 196, troubled);
+    const coolG = lerp(232, 228, troubled);
+    const coolB = lerp(228, 232, troubled);
+    const r = lerp(warmR, coolR, troubled);
+    const g = lerp(warmG, coolG, troubled);
+    const b = lerp(warmB, coolB, troubled);
+    const a = 0.28 + troubled * 0.22;
     ctx.save();
     ctx.fillStyle = `rgba(${Math.round(r)},${Math.round(g)},${Math.round(b)},${a})`;
     ctx.fillRect(0, 0, VB_W, VB_H);
-    ctx.restore();
-  }
-
-  /** Headboard: a horizontal band whose length tracks phase concordance (redundant with seams). */
-  function drawHeadboardPhaseBar(ctx, phaseConcordance) {
-    const p =
-      typeof phaseConcordance === "number"
-        ? Math.max(0, Math.min(1, phaseConcordance))
-        : 0.5;
-    const hx = 477.62;
-    const hy = 216.87;
-    const hw = 355.33;
-    const barH = 5;
-    const barW = Math.max(24, hw * (0.2 + 0.8 * p));
-    ctx.save();
-    ctx.fillStyle = seamColorGlyph(p);
-    ctx.globalAlpha = 0.85;
-    ctx.fillRect(hx, hy, barW, barH);
     ctx.restore();
   }
 
@@ -147,86 +171,59 @@
     ctx.restore();
   }
 
-  function drawSeams(ctx, segmentConcordance, phaseConcordance, opts) {
+  /**
+   * Two stacked strips: you (Darya) on top, Dale below; 5-min buckets in clock overlap, left→right.
+   */
+  function drawHypnogramStrips(ctx, night, opts) {
     const o = opts || {};
-    const bowMul = o.bowMul != null ? o.bowMul : 1;
-    const baseBow = 6 * bowMul;
-    const lwMin = o.seamLwMin != null ? o.seamLwMin : 0.85;
-    const lwMax = o.seamLwMax != null ? o.seamLwMax : 2.2;
-    const colorAt = o.seamColorAt || seamColorGlyph;
-    const bowA = o.bowLow != null ? o.bowLow : 1.12;
-    const bowB = o.bowHigh != null ? o.bowHigh : 0.88;
-
-    const count = 5;
-    const bl = MATTRESS_FRONT_POLY[0];
-    const tl = MATTRESS_FRONT_POLY[1];
-    const tr = MATTRESS_FRONT_POLY[2];
-    const br = MATTRESS_FRONT_POLY[3];
+    const inv = o.inverseLayoutScale != null ? o.inverseLayoutScale : 1;
+    const stripH = (o.stripCssHeight != null ? o.stripCssHeight : 10) * inv;
+    const gap = (o.stripGapCss != null ? o.stripGapCss : 1) * inv;
+    const fontUser = Math.min(96, Math.max(10, 9 * inv));
+    const youStr = night && night.sleepPhase5MinYou;
+    const daleStr = night && night.sleepPhase5MinDale;
+    const { ok, overlapStart, overlapEnd } = overlapWindow(night);
+    const w = HYPN_STRIP_X1 - HYPN_STRIP_X0;
+    const yYou = HYPN_Y_TOP;
+    const yDale = yYou + stripH + gap;
 
     ctx.save();
-    ctx.lineCap = "round";
+    ctx.lineWidth = Math.max(0.5, inv * 0.85);
+    ctx.strokeStyle = "rgba(35, 40, 42, 0.35)";
+    ctx.fillStyle = "#d5d0c8";
+    ctx.fillRect(HYPN_STRIP_X0, yYou, w, stripH);
+    ctx.fillRect(HYPN_STRIP_X0, yDale, w, stripH);
+    ctx.strokeRect(HYPN_STRIP_X0 + 0.5, yYou + 0.5, w - 1, stripH - 1);
+    ctx.strokeRect(HYPN_STRIP_X0 + 0.5, yDale + 0.5, w - 1, stripH - 1);
 
-    for (let i = 1; i <= count; i++) {
-      const segIdx = i - 1;
-      let c =
-        segmentConcordance && typeof segmentConcordance[segIdx] === "number"
-          ? segmentConcordance[segIdx]
-          : null;
-      if (c == null && typeof phaseConcordance === "number") c = phaseConcordance;
-      if (c == null) c = 0.5;
-
-      const t = i / (count + 1);
-      const lx = tl[0] + (bl[0] - tl[0]) * t;
-      const ly = tl[1] + (bl[1] - tl[1]) * t;
-      const rx = tr[0] + (br[0] - tr[0]) * t;
-      const ry = tr[1] + (br[1] - tr[1]) * t;
-      const dx = rx - lx;
-      const dy = ry - ly;
-      const len = Math.hypot(dx, dy) || 1;
-      const nx = -dy / len;
-      const ny = dx / len;
-      const bow = baseBow * (bowA - bowB * c);
-
-      const c1x = lx + dx * 0.35 + nx * bow;
-      const c1y = ly + dy * 0.35 + ny * bow;
-      const c2x = lx + dx * 0.65 + nx * bow;
-      const c2y = ly + dy * 0.65 + ny * bow;
-
-      ctx.strokeStyle = colorAt(c);
-      ctx.lineWidth = lwMin + (lwMax - lwMin) * c;
-      ctx.beginPath();
-      ctx.moveTo(lx, ly);
-      ctx.bezierCurveTo(c1x, c1y, c2x, c2y, rx, ry);
-      ctx.stroke();
+    if (ok && youStr && daleStr) {
+      let n = 0;
+      for (let t = overlapStart; t < overlapEnd; t += MS_5MIN) n++;
+      if (n < 1) n = 1;
+      let i = 0;
+      for (let t = overlapStart; t < overlapEnd; t += MS_5MIN) {
+        const x0 = HYPN_STRIP_X0 + (i / n) * w;
+        const x1 = HYPN_STRIP_X0 + ((i + 1) / n) * w;
+        const bw = Math.max(0.5, x1 - x0);
+        const py = phaseAt(youStr, night.bedtimeStartYou, t);
+        const pd = phaseAt(daleStr, night.bedtimeStartDale, t);
+        ctx.fillStyle = phaseBucketColor(py);
+        ctx.fillRect(x0, yYou, bw, stripH);
+        ctx.fillStyle = phaseBucketColor(pd);
+        ctx.fillRect(x0, yDale, bw, stripH);
+        i++;
+      }
+      ctx.strokeStyle = "rgba(35, 40, 42, 0.28)";
+      ctx.strokeRect(HYPN_STRIP_X0 + 0.5, yYou + 0.5, w - 1, stripH - 1);
+      ctx.strokeRect(HYPN_STRIP_X0 + 0.5, yDale + 0.5, w - 1, stripH - 1);
     }
-    ctx.restore();
-  }
 
-  /** Five vertical blocks: height + fill = segment-wise phase match (scan across the foot). */
-  function drawSegmentRibbon(ctx, segmentConcordance, seamColorFn) {
-    if (!segmentConcordance || segmentConcordance.length !== 5) return;
-    const x0 = 300;
-    const x1 = 1012;
-    const gap = 5;
-    const inner = x1 - x0 - gap * 4;
-    const barW = inner / 5;
-    const baseY = 848;
-    const maxH = 28;
-    const fn = seamColorFn || seamColorGlyph;
-
-    ctx.save();
-    for (let i = 0; i < 5; i++) {
-      const c = segmentConcordance[i];
-      const t = typeof c === "number" ? Math.max(0, Math.min(1, c)) : 0.5;
-      const h = 4 + maxH * t;
-      const bx = x0 + i * (barW + gap);
-      const by = baseY + maxH - h;
-      ctx.fillStyle = fn(t);
-      ctx.fillRect(bx, by, barW, h);
-      ctx.strokeStyle = "rgba(45, 48, 52, 0.28)";
-      ctx.lineWidth = 0.75;
-      ctx.strokeRect(bx + 0.5, by + 0.5, barW - 1, h - 1);
-    }
+    ctx.fillStyle = "rgba(45, 44, 40, 0.82)";
+    ctx.font = `600 ${fontUser}px "DM Sans", system-ui, -apple-system, sans-serif`;
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+    ctx.fillText("you", HYPN_LABEL_RIGHT, yYou + stripH / 2);
+    ctx.fillText("D", HYPN_LABEL_RIGHT, yDale + stripH / 2);
     ctx.restore();
   }
 
@@ -240,7 +237,7 @@
       const restless = 1 - calm;
       skewX = (restless - 0.35) * 0.07 * m;
       skewY = restless * 0.055 * m;
-      scaleY = 1 + (restless - 0.4) * 0.035 * Math.min(m, 1.4);
+      scaleY = 1 + (restless - 0.4) * 0.035 * Math.min(m, 2.2);
     }
     return { skewX, skewY, scaleY };
   }
@@ -256,15 +253,14 @@
       minR = night.restfulnessCombined;
     if (minR === 100) return 1.25;
     const restless = 1 - Math.max(0, Math.min(1, minR / 100));
-    return 1.05 + 0.85 * restless * m;
+    return 1.05 + 0.95 * restless * Math.min(m, 2.5);
   }
 
   function blanketFillForNight(night) {
     const h = nightHarmony(night);
-    const t = h;
     const base = [232, 226, 214];
     const rich = [218, 228, 224];
-    return lerpRgb(base, rich, t);
+    return lerpRgb(base, rich, h);
   }
 
   function applyBlanketTransform(ctx, t) {
@@ -356,39 +352,41 @@
     ctx.restore();
   }
 
-  function defaultDrawOpts(mode) {
+  function blanketSkewMulForCell(layoutScale) {
+    const s = layoutScale != null ? layoutScale : 1;
+    const ref = 200 / VB_W;
+    const ratio = ref / Math.max(0.08, s);
+    return Math.min(12, Math.max(2.6, 2.9 * ratio));
+  }
+
+  function defaultDrawOpts(mode, layoutScale) {
+    const skew = blanketSkewMulForCell(layoutScale);
     if (mode === "grid") {
       return {
         mode: "grid",
-        bowMul: 2.35,
-        bowLow: 1.28,
-        bowHigh: 0.92,
-        seamLwMin: 0.55,
-        seamLwMax: 3.15,
-        blanketSkewMul: 2.4,
-        mattressLineMul: 1.08,
-        showSegmentRibbon: true,
+        blanketSkewMul: skew,
+        mattressLineMul: 1.06,
         showCellAtmosphere: true,
-        showHeadboardBar: true,
+        inverseLayoutScale: layoutScale ? 1 / layoutScale : 1,
+        stripCssHeight: 10,
+        stripGapCss: 1,
       };
     }
     return {
       mode: "single",
-      bowMul: 1.15,
-      bowLow: 1.1,
-      bowHigh: 0.82,
-      seamLwMin: 0.75,
-      seamLwMax: 2.65,
-      blanketSkewMul: 1.35,
+      blanketSkewMul: Math.min(5, 2.8 * 1.15),
       mattressLineMul: 1,
-      showSegmentRibbon: false,
       showCellAtmosphere: false,
-      showHeadboardBar: true,
+      inverseLayoutScale: 1,
+      stripCssHeight: 10,
+      stripGapCss: 1,
     };
   }
 
   function drawAll(ctx, night, options) {
-    const o = Object.assign(defaultDrawOpts(options && options.mode), options || {});
+    const layoutScale = options && options.layoutScale != null ? options.layoutScale : 1;
+    const base = defaultDrawOpts(options && options.mode, layoutScale);
+    const o = Object.assign(base, options || {});
 
     ctx.fillStyle = colors.canvasBg;
     ctx.fillRect(0, 0, VB_W, VB_H);
@@ -396,38 +394,25 @@
     if (night && o.showCellAtmosphere) drawCellAtmosphere(ctx, night);
 
     drawHeadboard(ctx);
-    if (night && o.showHeadboardBar) {
-      drawHeadboardPhaseBar(ctx, night.phaseConcordance);
-    }
-
-    const segs = night && night.segmentConcordance;
-    const overall = night && night.phaseConcordance;
-
     drawMattressBase(ctx, o.mattressLineMul);
-    drawSeams(ctx, segs, overall, {
-      bowMul: o.bowMul,
-      seamLwMin: o.seamLwMin,
-      seamLwMax: o.seamLwMax,
-      seamColorAt: o.seamColorAt || seamColorGlyph,
-      bowLow: o.bowLow,
-      bowHigh: o.bowHigh,
-    });
     drawBlanket(ctx, night, o.blanketSkewMul);
-    if (night && o.showSegmentRibbon) {
-      drawSegmentRibbon(ctx, segs, o.seamColorAt || seamColorGlyph);
-    }
+    drawHypnogramStrips(ctx, night, o);
     drawPillows(ctx, night);
   }
 
   function isNightDataComplete(n) {
     if (!n || !n.date) return false;
     if (typeof n.phaseConcordance !== "number" || Number.isNaN(n.phaseConcordance)) return false;
+    if (typeof n.sleepPhase5MinYou !== "string" || !n.sleepPhase5MinYou.length) return false;
+    if (typeof n.sleepPhase5MinDale !== "string" || !n.sleepPhase5MinDale.length) return false;
+    if (n.bedtimeStartYou == null || n.bedtimeStartDale == null) return false;
+    const ov = overlapWindow(n);
+    if (!ov.ok) return false;
     const segs = n.segmentConcordance;
     if (!Array.isArray(segs) || segs.length !== 5) return false;
     for (let i = 0; i < 5; i++) {
       if (typeof segs[i] !== "number" || Number.isNaN(segs[i])) return false;
     }
-    if (n.bedtimeStartYou == null || n.bedtimeStartDale == null) return false;
     return true;
   }
 
@@ -446,7 +431,6 @@
     return d.toISOString().slice(0, 10);
   }
 
-  /** Most recent calendar block of 14 consecutive dates where each day is present and complete. */
   function pickFourteenConsecutiveClearNights(nights) {
     if (!nights || !nights.length) return null;
     const byDate = new Map();
@@ -482,7 +466,8 @@
         n.restfulnessCombined != null ||
         n.restfulnessYou != null ||
         n.restfulnessDale != null ||
-        (n.segmentConcordance && n.segmentConcordance.some((x) => x != null))
+        (n.segmentConcordance && n.segmentConcordance.some((x) => x != null)) ||
+        (n.sleepPhase5MinYou && n.sleepPhase5MinDale)
     );
     const pool = scored.length ? scored : nights;
     if (!pool.length) return null;
@@ -515,6 +500,8 @@
     pickFourteenConsecutiveClearNights,
     pickLatestNight,
     nightHarmony,
+    overlapWindow,
+    phaseBucketColor,
   };
 
   const canvasSingle = document.getElementById("bed");
@@ -525,8 +512,106 @@
   const COLS = 7;
   const ROWS = 2;
   const GAP = 12;
-  /** Pixels below each bed for the date label (CSS px, same space as grid layout). */
-  const GRID_DATE_STRIP = 22;
+
+  /** Latest grid geometry + night run for hit-testing (CSS pixel space). */
+  const gridHitLayout = {
+    run: null,
+    cellCssW: 0,
+    cellCssH: 0,
+    totalCssW: 0,
+    totalCssH: 0,
+  };
+
+  function nightAtGridPosition(canvas, clientX, clientY) {
+    const L = gridHitLayout;
+    if (!L.run || !L.totalCssW) return null;
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width < 1 || rect.height < 1) return null;
+    const cssX = ((clientX - rect.left) / rect.width) * L.totalCssW;
+    const cssY = ((clientY - rect.top) / rect.height) * L.totalCssH;
+    const col = Math.floor(cssX / (L.cellCssW + GAP));
+    const xIn = cssX - col * (L.cellCssW + GAP);
+    if (col < 0 || col >= COLS || xIn < 0 || xIn > L.cellCssW) return null;
+    const row = Math.floor(cssY / (L.cellCssH + GAP));
+    const yIn = cssY - row * (L.cellCssH + GAP);
+    if (row < 0 || row >= ROWS || yIn < 0 || yIn > L.cellCssH) return null;
+    return L.run.nights[row * COLS + col] || null;
+  }
+
+  function prettyLocalTime(iso) {
+    if (!iso) return "—";
+    try {
+      return new Date(iso).toLocaleString(undefined, {
+        dateStyle: "medium",
+        timeStyle: "short",
+      });
+    } catch (_) {
+      return String(iso);
+    }
+  }
+
+  function fillModalMeta(container, night) {
+    container.replaceChildren();
+    const dl = document.createElement("dl");
+    const add = (label, value) => {
+      const dt = document.createElement("dt");
+      dt.textContent = label;
+      const dd = document.createElement("dd");
+      dd.textContent = value;
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    };
+    add(
+      "Phase concordance",
+      typeof night.phaseConcordance === "number"
+        ? `${Math.round(night.phaseConcordance * 100)}% of overlap buckets match`
+        : "—"
+    );
+    const ov = overlapWindow(night);
+    if (ov.ok) {
+      add(
+        "Overlap window",
+        `${prettyLocalTime(new Date(ov.overlapStart).toISOString())} → ${prettyLocalTime(new Date(ov.overlapEnd).toISOString())}`
+      );
+    } else {
+      add("Overlap window", "—");
+    }
+    add("Bedtime (you)", prettyLocalTime(night.bedtimeStartYou));
+    add("Bedtime (Dale)", prettyLocalTime(night.bedtimeStartDale));
+    const ry =
+      typeof night.restfulnessYou === "number"
+        ? String(Math.round(night.restfulnessYou))
+        : "—";
+    const rd =
+      typeof night.restfulnessDale === "number"
+        ? String(Math.round(night.restfulnessDale))
+        : "—";
+    add("Restfulness", `you ${ry} · Dale ${rd}`);
+    if (Array.isArray(night.segmentConcordance)) {
+      const parts = night.segmentConcordance.map((x, i) =>
+        typeof x === "number" ? `S${i + 1} ${Math.round(x * 100)}%` : `S${i + 1} —`
+      );
+      add("Segments (5 parts of overlap)", parts.join(" · "));
+    }
+    container.appendChild(dl);
+  }
+
+  function renderNightDetailCanvas(canvasEl, night) {
+    const wrapW = Math.min(920, Math.max(280, window.innerWidth - 64));
+    const dprM = Math.min(2, window.devicePixelRatio || 1);
+    const cssH = (wrapW * VB_H) / VB_W;
+    canvasEl.style.width = `${wrapW}px`;
+    canvasEl.style.height = `${cssH}px`;
+    canvasEl.width = Math.round(wrapW * dprM);
+    canvasEl.height = Math.round(cssH * dprM);
+    const mctx = canvasEl.getContext("2d");
+    if (!mctx) return;
+    mctx.setTransform(1, 0, 0, 1, 0, 0);
+    mctx.scale(dprM, dprM);
+    const sModal = wrapW / VB_W;
+    const opts = Object.assign(defaultDrawOpts("grid", sModal), { layoutScale: sModal });
+    drawAll(mctx, night, opts);
+  }
 
   function formatGridCellDate(iso) {
     if (!iso || typeof iso !== "string") return "";
@@ -538,6 +623,16 @@
     if (m >= 1 && m <= 12 && d >= 1) return `${mo[m - 1]} ${d}`;
     return iso;
   }
+
+  function formatConcordancePct(night) {
+    if (!night || typeof night.phaseConcordance !== "number" || Number.isNaN(night.phaseConcordance)) {
+      return "—";
+    }
+    return `${Math.round(night.phaseConcordance * 100)}% match`;
+  }
+
+  /** Pixels below bed art: two lines (date + concordance). */
+  const GRID_DATE_STRIP = 40;
 
   function setupGridCanvas(canvas, cap, data) {
     const run = data && pickFourteenConsecutiveClearNights(data.nights);
@@ -561,19 +656,36 @@
     ctx.imageSmoothingEnabled = true;
 
     if (!data) {
+      gridHitLayout.run = null;
+      canvas.removeAttribute("tabindex");
+      canvas.style.cursor = "";
       cap.textContent =
         "Could not load data/couples.json. From the project root run: npx serve . then open Couples Sleep.";
       return;
     }
 
     if (!run) {
+      gridHitLayout.run = null;
+      canvas.removeAttribute("tabindex");
+      canvas.style.cursor = "";
       cap.textContent =
-        "No block of 14 consecutive calendar nights with complete overlap (phase, all five segments, both bedtimes). Merge fresher couples data or relax gaps in the source exports.";
+        "No block of 14 consecutive calendar nights with complete overlap and hypnograms (sleepPhase5MinYou/Dale, bedtimes, overlap). Run npm run merge-couples after fetching daily + dale JSON.";
       return;
     }
 
-    const gridOpts = defaultDrawOpts("grid");
+    gridHitLayout.run = run;
+    gridHitLayout.cellCssW = cellCssW;
+    gridHitLayout.cellCssH = cellCssH;
+    gridHitLayout.totalCssW = totalCssW;
+    gridHitLayout.totalCssH = totalCssH;
+    canvas.setAttribute("tabindex", "0");
+    canvas.style.cursor = "pointer";
+
     const s = cellCssW / VB_W;
+    const gridOpts = Object.assign(defaultDrawOpts("grid", s), {
+      layoutScale: s,
+    });
+
     let idx = 0;
     for (let row = 0; row < ROWS; row++) {
       for (let col = 0; col < COLS; col++) {
@@ -590,17 +702,21 @@
 
     ctx.save();
     ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "#3d3a36";
-    const fontPx = Math.max(10, Math.min(12, cellCssW * 0.09));
-    ctx.font = `600 ${fontPx}px "DM Sans", system-ui, -apple-system, sans-serif`;
+    const datePx = Math.max(10, Math.min(12, cellCssW * 0.062));
+    const subPx = Math.max(9, Math.min(11, cellCssW * 0.056));
     idx = 0;
     for (let row = 0; row < ROWS; row++) {
       for (let col = 0; col < COLS; col++) {
         const night = run.nights[idx++];
         const cx = col * (cellCssW + GAP) + cellCssW / 2;
-        const cy = row * (cellCssH + GAP) + cellPlotH + GRID_DATE_STRIP / 2;
-        ctx.fillText(formatGridCellDate(night.date), cx, cy);
+        const baseY = row * (cellCssH + GAP) + cellPlotH;
+        ctx.textBaseline = "alphabetic";
+        ctx.fillStyle = "#3d3a36";
+        ctx.font = `600 ${datePx}px "DM Sans", system-ui, -apple-system, sans-serif`;
+        ctx.fillText(formatGridCellDate(night.date), cx, baseY + 14);
+        ctx.fillStyle = "#6a655e";
+        ctx.font = `500 ${subPx}px "DM Sans", system-ui, -apple-system, sans-serif`;
+        ctx.fillText(formatConcordancePct(night), cx, baseY + 30);
       }
     }
     ctx.restore();
@@ -608,17 +724,15 @@
     cap.innerHTML = "";
     const p1 = document.createElement("p");
     p1.className = "grid-cap-main";
-    p1.textContent = `Fourteen clear nights: ${run.startDate} → ${run.endDate}. Read left → right, top row then bottom; each date sits under its bed.`;
+    p1.textContent = `Fourteen clear nights: ${run.startDate} → ${run.endDate}. Left → right, top then bottom. Same-time stripe colors = concordance. Click any cell to enlarge.`;
     cap.appendChild(p1);
     const leg = document.createElement("div");
     leg.className = "bed-legend";
     leg.setAttribute("aria-label", "Visual encoding legend");
     leg.innerHTML = [
-      "<p><span class='chip chip-seam' aria-hidden='true'></span>Seams — straighter curves, thicker strokes, cooler teal: phases more in sync.</p>",
-      "<p><span class='chip chip-bars' aria-hidden='true'></span>Foot bars — five segments of the night; taller and cooler = more match then.</p>",
-      "<p><span class='chip chip-head' aria-hidden='true'></span>Headboard band — longer bar = stronger overall match that night.</p>",
-      "<p><span class='chip chip-wash' aria-hidden='true'></span>Cell wash — warmer blush vs cooler mint: rougher vs calmer night (phase + restfulness when available).</p>",
-      "<p><span class='chip chip-blanket' aria-hidden='true'></span>Blanket & pillows — more skew and warmer pillow tones when restfulness scores show restlessness (per side).</p>",
+      "<p><span class='chip chip-deep' aria-hidden='true'></span>Deep <code>#1a3d35</code> · Light <code>#4a9e8a</code> · REM <code>#7dd4b8</code> · Awake <code>#e0f5ef</code> — 5-min buckets in shared clock overlap.</p>",
+      "<p><span class='chip chip-wash' aria-hidden='true'></span>Cell wash — warm blush vs cool mint: rougher vs calmer night (phase + restfulness when present).</p>",
+      "<p><span class='chip chip-blanket' aria-hidden='true'></span>Blanket — stronger skew when restfulness shows restlessness (you right, Dale left).</p>",
     ].join("");
     cap.appendChild(leg);
   }
@@ -627,7 +741,7 @@
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const night = data && pickLatestNight(data.nights);
-    drawAll(ctx, night, defaultDrawOpts("single"));
+    drawAll(ctx, night, defaultDrawOpts("single", 1));
 
     if (!data) {
       cap.textContent =
@@ -657,16 +771,61 @@
         : rc != null
           ? `restfulness ${rc}`
           : "restfulness n/a";
-    cap.textContent = `Night ${night.date} — ${c}; ${r}. Blanket: Dale left / you right; seams & bars: phase match. Aggregate: ${
+    cap.textContent = `Night ${night.date} — ${c}; ${r}. Hypnograms: overlap window; blanket: per-person restfulness. Aggregate: ${
       data.aggregate?.meanPhaseConcordance != null
         ? Math.round(data.aggregate.meanPhaseConcordance * 100) + "%"
         : "n/a"
     } mean match.`;
   }
 
+  const bedCellModal = document.getElementById("bed-cell-modal");
+  const bedModalTitle = document.getElementById("bed-modal-title");
+  const bedModalCanvas = document.getElementById("bed-modal-canvas");
+  const bedModalMeta = document.getElementById("bed-modal-meta");
+  let modalPrevFocus = null;
+
+  function closeBedCellModal() {
+    if (!bedCellModal || bedCellModal.hidden) return;
+    bedCellModal.hidden = true;
+    document.body.style.overflow = "";
+    if (modalPrevFocus && typeof modalPrevFocus.focus === "function") {
+      modalPrevFocus.focus();
+    }
+    modalPrevFocus = null;
+  }
+
+  function openBedCellModal(night) {
+    if (!bedCellModal || !bedModalCanvas || !bedModalTitle || !bedModalMeta || !night) return;
+    modalPrevFocus = document.activeElement;
+    bedModalTitle.textContent = night.date;
+    fillModalMeta(bedModalMeta, night);
+    renderNightDetailCanvas(bedModalCanvas, night);
+    bedCellModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    const closeBtn = bedCellModal.querySelector("[data-close-modal].bed-modal-close");
+    if (closeBtn) closeBtn.focus();
+  }
+
+  if (bedCellModal) {
+    bedCellModal.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && t.closest && t.closest("[data-close-modal]")) closeBedCellModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && bedCellModal && !bedCellModal.hidden) {
+        e.preventDefault();
+        closeBedCellModal();
+      }
+    });
+  }
+
   if (canvasGrid && capGrid) {
     capGrid.textContent = "Loading couples data…";
     let gridDataCache = null;
+    canvasGrid.addEventListener("click", (e) => {
+      const night = nightAtGridPosition(canvasGrid, e.clientX, e.clientY);
+      if (night) openBedCellModal(night);
+    });
     loadCouplesJson().then((data) => {
       gridDataCache = data;
       setupGridCanvas(canvasGrid, capGrid, data);
