@@ -5,7 +5,7 @@
   "scripts": {
     "get-token": "node auth/get_token.js",
     "fetch": "node data/fetch.js",
-    "build": "node data/fetch.js",
+    // "build": "node data/fetch.js",
     "dev": "npx serve .",
     "preview": "npx serve ."
   },
