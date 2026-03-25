@@ -106,30 +106,39 @@
       position: fixed;
       inset: 0;
       z-index: 2000;
+      box-sizing: border-box;
+      padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+        max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 16px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      background: rgba(28, 26, 22, 0.45);
+      cursor: pointer;
     }
     .bed-modal[hidden] {
       display: none !important;
     }
-    .bed-modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(28, 26, 22, 0.45);
-      cursor: pointer;
-    }
     .bed-modal-panel {
       position: relative;
       z-index: 1;
-      max-width: min(960px, 100%);
-      max-height: min(96vh, 100%);
-      overflow: auto;
+      box-sizing: border-box;
+      width: min(920px, calc(100vw - 32px));
+      max-width: 100%;
+      max-height: min(92vh, calc(100dvh - 32px));
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      cursor: default;
       background: #fcfcfc;
       border-radius: 8px;
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
       padding: 20px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
     .bed-modal-panel h2 {
       margin: 0 0 6px;
@@ -155,12 +164,20 @@
     .bed-modal-close:hover {
       background: #e0dcd4;
     }
+    .bed-modal-canvas-wrap {
+      flex: 0 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 12px;
+      min-height: 0;
+    }
     #bed-modal-canvas {
       display: block;
-      width: 100%;
-      max-width: 920px;
-      height: auto;
-      margin: 12px auto 0;
+      margin: 0 auto;
+      max-width: 100%;
+      box-sizing: border-box;
       background: #f5f2eb;
       border-radius: 4px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
@@ -205,11 +222,12 @@
   </div>
 
   <div id="bed-cell-modal" class="bed-modal" hidden role="dialog" aria-modal="true" aria-labelledby="bed-modal-title">
-    <div class="bed-modal-backdrop" data-close-modal tabindex="-1"></div>
     <div class="bed-modal-panel">
       <button type="button" class="bed-modal-close" data-close-modal aria-label="Close">×</button>
       <h2 id="bed-modal-title">Night</h2>
-      <canvas id="bed-modal-canvas" width="1280" height="1024" aria-label="Enlarged night"></canvas>
+      <div class="bed-modal-canvas-wrap">
+        <canvas id="bed-modal-canvas" width="1280" height="1024" aria-label="Enlarged night"></canvas>
+      </div>
       <div class="bed-modal-meta" id="bed-modal-meta"></div>
     </div>
   </div>

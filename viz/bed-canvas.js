@@ -597,9 +597,20 @@
   }
 
   function renderNightDetailCanvas(canvasEl, night) {
-    const wrapW = Math.min(920, Math.max(280, window.innerWidth - 64));
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const maxCssW = Math.min(560, vw - 48);
+    const maxCssH = vh * 0.5;
+    let wrapW = maxCssW;
+    let cssH = (wrapW * VB_H) / VB_W;
+    if (cssH > maxCssH) {
+      cssH = maxCssH;
+      wrapW = (cssH * VB_W) / VB_H;
+    }
+    wrapW = Math.max(240, wrapW);
+    cssH = (wrapW * VB_H) / VB_W;
+    const sModal = wrapW / VB_W;
     const dprM = Math.min(2, window.devicePixelRatio || 1);
-    const cssH = (wrapW * VB_H) / VB_W;
     canvasEl.style.width = `${wrapW}px`;
     canvasEl.style.height = `${cssH}px`;
     canvasEl.width = Math.round(wrapW * dprM);
@@ -607,8 +618,7 @@
     const mctx = canvasEl.getContext("2d");
     if (!mctx) return;
     mctx.setTransform(1, 0, 0, 1, 0, 0);
-    mctx.scale(dprM, dprM);
-    const sModal = wrapW / VB_W;
+    mctx.scale(dprM * sModal, dprM * sModal);
     const opts = Object.assign(defaultDrawOpts("grid", sModal), { layoutScale: sModal });
     drawAll(mctx, night, opts);
   }
@@ -808,6 +818,7 @@
 
   if (bedCellModal) {
     bedCellModal.addEventListener("click", (e) => {
+      if (e.target === bedCellModal) closeBedCellModal();
       const t = e.target;
       if (t && t.closest && t.closest("[data-close-modal]")) closeBedCellModal();
     });
