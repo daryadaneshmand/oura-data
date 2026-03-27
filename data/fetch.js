@@ -164,6 +164,18 @@ function addDuration(existing, incoming) {
   return existing ?? incoming;
 }
 
+function parseMovement30Sec(raw) {
+  if (Array.isArray(raw)) {
+    const vals = raw.map(Number).filter((v) => Number.isFinite(v));
+    return vals.length ? vals : null;
+  }
+  if (typeof raw === "string" && raw.length) {
+    const vals = raw.split("").map(Number).filter((v) => Number.isFinite(v));
+    return vals.length ? vals : null;
+  }
+  return null;
+}
+
 function defaultDay(day, strengthDates) {
   return {
     date: day,
@@ -178,6 +190,8 @@ function defaultDay(day, strengthDates) {
     sleepEfficiency: null,
     /** long_sleep: hypnogram for couples phase concordance (5 min per char) */
     sleepPhase5Min: null,
+    /** long_sleep: movement signal, one value every 30 seconds (Oura 0-100). */
+    movement30Sec: null,
     bedtimeStart: null,
     bedtimeEnd: null,
     isStrengthDay: strengthDates.has(day),
@@ -242,6 +256,7 @@ function mergeDailyData({ resilience, readiness, workouts, activity, sleep }) {
       const next = s.sleep_phase_5_min.length;
       if (next >= prev) {
         existing.sleepPhase5Min = s.sleep_phase_5_min;
+        existing.movement30Sec = parseMovement30Sec(s.movement_30_sec);
         existing.bedtimeStart = s.bedtime_start ?? null;
         existing.bedtimeEnd = s.bedtime_end ?? null;
       }

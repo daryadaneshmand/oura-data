@@ -1,7 +1,7 @@
 /**
  * Merge primary (data/daily.json) and partner (data/dale.json) by calendar day.
  * Computes sleep phase concordance (5-min hypnogram overlap) and carries Oura restfulness
- * (daily_readiness contributor, 0–100).
+ * (daily_readiness contributor, 0–100), plus movement_30_sec arrays for each partner.
  *
  * Run: npm run merge-couples
  * Output: data/couples.json
@@ -111,6 +111,18 @@ function mean(nums) {
   return v.reduce((s, x) => s + x, 0) / v.length;
 }
 
+function normalizeMovement30Sec(raw) {
+  if (Array.isArray(raw)) {
+    const vals = raw.map(Number).filter((v) => Number.isFinite(v));
+    return vals.length ? vals : null;
+  }
+  if (typeof raw === "string" && raw.length) {
+    const vals = raw.split("").map(Number).filter((v) => Number.isFinite(v));
+    return vals.length ? vals : null;
+  }
+  return null;
+}
+
 function main() {
   const dataDir = dirname(fileURLToPath(import.meta.url));
   const dailyPath = join(dataDir, "daily.json");
@@ -154,6 +166,8 @@ function main() {
       bedtimeEndDale: d.bedtimeEnd ?? null,
       sleepPhase5MinYou: y.sleepPhase5Min ?? null,
       sleepPhase5MinDale: d.sleepPhase5Min ?? null,
+      movement30SecYou: normalizeMovement30Sec(y.movement30Sec ?? y.movement_30_sec),
+      movement30SecDale: normalizeMovement30Sec(d.movement30Sec ?? d.movement_30_sec),
     });
   }
 
@@ -169,6 +183,7 @@ function main() {
       notes: [
         "phaseConcordance: fraction of 5-min buckets in clock overlap where sleep_phase_5_min matches (1=deep,2=light,3=REM,4=awake).",
         "sleepPhase5MinYou/Dale: hypnogram strings for viz; bedtimeEnd* for overlap end (else inferred from string length × 5 min).",
+        "movement30SecYou/Dale: long_sleep movement_30_sec arrays (0-100), ordered 30-second buckets starting at bedtimeStart*.",
         "restfulness*: from daily_readiness.contributors.restfulness (Oura 0–100 style). Re-fetch daily.json and dale.json after fetch.js adds these fields.",
       ],
     },

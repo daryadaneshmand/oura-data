@@ -7,6 +7,7 @@
   const VB_W = 1280;
   const VB_H = 1024;
   const MS_5MIN = 5 * 60 * 1000;
+  const MS_30SEC = 30 * 1000;
 
   const BLANKET_ANCHOR_X = 655;
   const BLANKET_ANCHOR_Y = 468;
@@ -51,6 +52,17 @@
   const dPillowRight =
     "M669.93,229.04c8.74,1.18,30,4.36,38.01,8.46s39.07-2.19,44.7-1.65,26.58-4.27,45.96-1.59c19.38,2.67,14.03,10.63,13.55,22.55s-2.56,14.36-.46,25.76,4.07,24.68-9.03,22.27-25.97,4.69-37.89,4.2-66.43-5.29-77.1-5.72-33.67,8.69-26.98-16.81c6.69-25.51,6.82-28.64,4.74-39.42-2.08-10.77-3.61-19.15,4.5-18.05Z";
 
+  let blanketBBoxCache = null;
+  let movementSampleLogged = false;
+  const movementAmplitudeScale =
+    window.d3 && typeof window.d3.scaleLinear === "function"
+      ? window.d3.scaleLinear().domain([1, 4]).range([0, 12]).clamp(true)
+      : (v) => {
+          const x = Number(v);
+          if (!Number.isFinite(x)) return 0;
+          return Math.max(0, Math.min(12, ((x - 1) / 3) * 12));
+        };
+
   function lerp(a, b, u) {
     return a + (b - a) * u;
   }
@@ -93,6 +105,57 @@
     const overlapEnd = Math.min(eu, ed);
     const ok = overlapEnd > overlapStart + MS_5MIN;
     return { ok, overlapStart, overlapEnd };
+  }
+
+  function getBlanketBBoxSvgUnits() {
+    if (blanketBBoxCache) return blanketBBoxCache;
+    if (typeof document === "undefined") {
+      blanketBBoxCache = { x: 300, y: 322, width: 720, height: 355 };
+      return blanketBBoxCache;
+    }
+    const ns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", `0 0 ${VB_W} ${VB_H}`);
+    svg.setAttribute("width", "0");
+    svg.setAttribute("height", "0");
+    svg.style.position = "absolute";
+    svg.style.left = "-9999px";
+    svg.style.top = "-9999px";
+    svg.style.pointerEvents = "none";
+    const path = document.createElementNS(ns, "path");
+    path.setAttribute("d", dBlanket);
+    svg.appendChild(path);
+    document.body.appendChild(svg);
+    try {
+      const b = path.getBBox();
+      blanketBBoxCache = { x: b.x, y: b.y, width: b.width, height: b.height };
+    } catch (_) {
+      blanketBBoxCache = { x: 300, y: 322, width: 720, height: 355 };
+    }
+    svg.remove();
+    return blanketBBoxCache;
+  }
+
+  function movementAt30Sec(arr, bedtimeStart, tMs) {
+    if (!Array.isArray(arr) || !bedtimeStart) return null;
+    const t0 = new Date(bedtimeStart).getTime();
+    if (!Number.isFinite(t0)) return null;
+    const idx = Math.floor((tMs - t0) / MS_30SEC);
+    if (idx < 0 || idx >= arr.length) return null;
+    const v = arr[idx];
+    return typeof v === "number" && Number.isFinite(v) ? v : null;
+  }
+
+  function movementBucketsForOverlap(arr, bedtimeStart, overlapStart, overlapEnd) {
+    if (!(overlapEnd > overlapStart)) return [];
+    const totalBuckets = Math.max(1, Math.floor((overlapEnd - overlapStart) / MS_30SEC));
+    const out = new Array(totalBuckets);
+    for (let i = 0; i < totalBuckets; i++) {
+      const t = overlapStart + i * MS_30SEC;
+      const v = movementAt30Sec(arr, bedtimeStart, t);
+      out[i] = v == null ? 0 : v;
+    }
+    return out;
   }
 
   function phaseBucketColor(ch) {
@@ -269,7 +332,27 @@
     ctx.translate(-BLANKET_ANCHOR_X, -BLANKET_ANCHOR_Y);
   }
 
-  function drawBlanketHalf(ctx, clipX, clipY, clipW, clipH, t, fillHex, strokeW) {
+  function drawMovementRipplePath(ctx, side, movementBuckets, bbox) {
+    if (!Array.isArray(movementBuckets) || movementBuckets.length === 0) return;
+    const total = movementBuckets.length;
+    const midX = bbox.x + bbox.width / 2;
+    const nearCenterBand = 12;
+    const phaseStep = Math.PI / 2;
+    ctx.beginPath();
+    for (let i = 0; i < total; i++) {
+      const y = bbox.y + (i / total) * bbox.height;
+      const amp = movementAmplitudeScale(movementBuckets[i]);
+      const wobble = Math.sin(i * phaseStep) * amp;
+      const x =
+        side === "left"
+          ? midX - nearCenterBand + wobble
+          : midX + nearCenterBand - wobble;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+  }
+
+  function drawBlanketHalf(ctx, clipX, clipY, clipW, clipH, side, t, fillHex, strokeW, movementBuckets, bbox) {
     const p = new Path2D(dBlanket);
     ctx.save();
     ctx.beginPath();
@@ -282,6 +365,16 @@
     ctx.strokeStyle = colors.blanketStroke;
     ctx.lineWidth = strokeW;
     ctx.stroke(p);
+    if (movementBuckets && movementBuckets.length) {
+      ctx.save();
+      ctx.clip(p);
+      drawMovementRipplePath(ctx, side, movementBuckets, bbox);
+      ctx.strokeStyle =
+        side === "left" ? "rgba(78, 126, 145, 0.62)" : "rgba(180, 124, 112, 0.62)";
+      ctx.lineWidth = 1.6;
+      ctx.stroke();
+      ctx.restore();
+    }
     ctx.restore();
     ctx.restore();
   }
@@ -316,8 +409,34 @@
     const fill = blanketFillForNight(night);
     const sw = blanketStrokeForNight(night, skewMul);
     const ax = BLANKET_ANCHOR_X;
-    drawBlanketHalf(ctx, 0, 0, ax, VB_H, tDale, fill, sw);
-    drawBlanketHalf(ctx, ax, 0, VB_W - ax, VB_H, tYou, fill, sw);
+    const bbox = getBlanketBBoxSvgUnits();
+    const ov = overlapWindow(night);
+    let movementDale = [];
+    let movementYou = [];
+    if (ov.ok) {
+      const daleMovement =
+        (night && night.movement30SecDale) ||
+        (night && night.movement_30_sec_dale) ||
+        (night && night.movement_30_secDale);
+      const youMovement =
+        (night && night.movement30SecYou) ||
+        (night && night.movement_30_sec_you) ||
+        (night && night.movement_30_secYou);
+      movementDale = movementBucketsForOverlap(
+        daleMovement,
+        night && night.bedtimeStartDale,
+        ov.overlapStart,
+        ov.overlapEnd
+      );
+      movementYou = movementBucketsForOverlap(
+        youMovement,
+        night && night.bedtimeStartYou,
+        ov.overlapStart,
+        ov.overlapEnd
+      );
+    }
+    drawBlanketHalf(ctx, 0, 0, ax, VB_H, "left", tDale, fill, sw, movementDale, bbox);
+    drawBlanketHalf(ctx, ax, 0, VB_W - ax, VB_H, "right", tYou, fill, sw, movementYou, bbox);
   }
 
   function pillowRgb(side, score) {
@@ -641,10 +760,50 @@
     return `${Math.round(night.phaseConcordance * 100)}% match`;
   }
 
+  function logMovement30SecSample(data) {
+    if (movementSampleLogged || !data || !Array.isArray(data.nights)) return;
+    const movementYouFor = (n) => n && (n.movement30SecYou || n.movement_30_sec_you || n.movement_30_secYou);
+    const movementDaleFor = (n) => n && (n.movement30SecDale || n.movement_30_sec_dale || n.movement_30_secDale);
+    const sampleNight = data.nights.find(
+      (n) => Array.isArray(movementYouFor(n)) || Array.isArray(movementDaleFor(n))
+    );
+    if (!sampleNight) {
+      console.log("[Couples Sleep] movement_30_sec sample (you): missing in merged data.");
+      console.log("[Couples Sleep] movement_30_sec sample (dale): missing in merged data.");
+      console.log(
+        "[Couples Sleep] movement_30_sec type: unavailable. Regenerate data via fetch + merge to include this field."
+      );
+      movementSampleLogged = true;
+      return;
+    }
+    const logOne = (label, arr, startIso) => {
+      const sample = Array.isArray(arr) ? arr.slice(0, 12) : null;
+      const types = Array.isArray(arr) ? [...new Set(arr.slice(0, 24).map((v) => typeof v))] : [];
+      const finite = Array.isArray(arr) ? arr.filter((v) => typeof v === "number" && Number.isFinite(v)) : [];
+      const range = finite.length ? [Math.min(...finite), Math.max(...finite)] : [null, null];
+      console.log(`[Couples Sleep] movement_30_sec sample (${label}):`, sample);
+      console.log(
+        `[Couples Sleep] movement_30_sec metadata (${label}):`,
+        {
+          isArray: Array.isArray(arr),
+          valueTypes: types,
+          observedRange: range,
+          carriesTimestamps: Array.isArray(arr) && typeof arr[0] === "object",
+          interpretation: "ordered array with implied start time at bedtimeStart",
+          impliedStart: startIso || null,
+        }
+      );
+    };
+    logOne("you", movementYouFor(sampleNight), sampleNight.bedtimeStartYou);
+    logOne("dale", movementDaleFor(sampleNight), sampleNight.bedtimeStartDale);
+    movementSampleLogged = true;
+  }
+
   /** Pixels below bed art: two lines (date + concordance). */
   const GRID_DATE_STRIP = 40;
 
   function setupGridCanvas(canvas, cap, data) {
+    logMovement30SecSample(data);
     const run = data && pickFourteenConsecutiveClearNights(data.nights);
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const maxCssW = Math.min(1380, Math.max(320, window.innerWidth - 40));
@@ -748,6 +907,7 @@
   }
 
   function setupSingleCanvas(canvas, cap, data) {
+    logMovement30SecSample(data);
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const night = data && pickLatestNight(data.nights);
